@@ -101,3 +101,9 @@ section p {
     }
 }
 
+/* Footer component styles are now in the web component's Shadow DOM */
+lumhara-footer {
+    display: block;
+    width: 100%;
+}
+

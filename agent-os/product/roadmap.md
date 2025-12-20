@@ -1,6 +1,6 @@
 # Product Roadmap
 
-1. [ ] Basic HTML structure and minimal hamburger navigation — Set up semantic HTML5 structure with header, main content areas, and a minimal hamburger menu navigation that includes necessary jump links (to sections on the homepage) and/or links to separate pages (About Me, etc.), maintaining a clean, uncluttered appearance `S`
+1. [x] Basic HTML structure and minimal hamburger navigation — Set up semantic HTML5 structure with header, main content areas, and a minimal hamburger menu navigation that includes necessary jump links (to sections on the homepage) and/or links to separate pages (About Me, etc.), maintaining a clean, uncluttered appearance `S`
 
 2. [ ] Footer with copyright and social media — Create a footer section with copyright information and social media links, along with any additional footer content, all styled to match the tranquil, minimal aesthetic `S`
 
