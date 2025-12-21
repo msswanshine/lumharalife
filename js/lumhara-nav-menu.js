@@ -40,6 +40,12 @@ class LumharaNavMenu extends HTMLElement {
                     align-items: center;
                     justify-content: center;
                     color: var(--color-text, #2c2c2c);
+                    filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8));
+                    transition: filter 0.3s ease;
+                }
+                
+                :host-context(lumhara-header.scrolled) .hamburger-button {
+                    filter: none;
                 }
                 
                 .hamburger-button:focus {
