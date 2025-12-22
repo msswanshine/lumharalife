@@ -109,6 +109,140 @@ section p {
     }
 }
 
+/* Philosophy section styles */
+#philosophy {
+    position: relative;
+    background-color: var(--color-background);
+}
+
+/* Subtle background texture/pattern for philosophy section */
+#philosophy::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(68, 90, 68, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(68, 90, 68, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.philosophy-container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    align-items: start;
+}
+
+.philosophy-quote {
+    position: relative;
+}
+
+.philosophy-quote::before {
+    content: '☯';
+    position: absolute;
+    top: -1rem;
+    left: -0.5rem;
+    font-size: 3rem;
+    opacity: 0.08;
+    color: var(--color-accent);
+    z-index: -1;
+    line-height: 1;
+}
+
+.philosophy-quote blockquote {
+    margin: 0;
+    padding: 5.25rem 0 0;
+    border: none;
+    font-style: italic;
+    position: relative;
+}
+
+.philosophy-quote blockquote p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 300;
+}
+
+.philosophy-quote blockquote cite {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    color: var(--color-text-light);
+    margin-top: var(--spacing-sm);
+    font-weight: 400;
+}
+
+.philosophy-content {
+    position: relative;
+}
+
+.philosophy-content h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.philosophy-content p {
+    margin-bottom: var(--spacing-md);
+}
+
+.philosophy-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Desktop: Two-column layout */
+@media (min-width: 1025px) {
+    .philosophy-container {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-xl);
+        align-items: start;
+    }
+    
+    .philosophy-quote {
+        padding-right: var(--spacing-md);
+    }
+    
+    .philosophy-content {
+        padding-left: var(--spacing-md);
+    }
+}
+
+/* Tablet: Two-column with adjusted spacing */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .philosophy-container {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Mobile: Stacked layout */
+@media (max-width: 768px) {
+    .philosophy-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .philosophy-quote {
+        padding-right: 0;
+    }
+    
+    .philosophy-content {
+        padding-left: 0;
+    }
+    
+    .philosophy-quote blockquote p {
+        font-size: 1.25rem;
+    }
+}
+
 /* Footer component styles are now in the web component's Shadow DOM */
 lumhara-footer {
     display: block;
