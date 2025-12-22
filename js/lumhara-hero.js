@@ -50,6 +50,13 @@ class LumharaHero extends HTMLElement {
         const ctaButtons = this.shadowRoot.querySelectorAll('.cta-button');
         ctaButtons.forEach(button => {
             button.addEventListener('click', this.handleCTAClick.bind(this));
+            // Add keyboard support for Space and Enter keys
+            button.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.handleCTAClick(e);
+                }
+            });
         });
     }
 
@@ -270,6 +277,26 @@ class LumharaHero extends HTMLElement {
                 .cta-button:focus {
                     outline: 3px solid var(--color-accent, #445A44);
                     outline-offset: 3px;
+                }
+                
+                .cta-button:focus:not(:focus-visible) {
+                    outline: none;
+                }
+                
+                .cta-button:focus-visible {
+                    outline: 3px solid var(--color-accent, #445A44);
+                    outline-offset: 3px;
+                }
+                
+                /* Respect prefers-reduced-motion for button transitions */
+                @media (prefers-reduced-motion: reduce) {
+                    .cta-button {
+                        transition: background-color 0.1s ease, box-shadow 0.1s ease;
+                    }
+                    
+                    .cta-button:hover {
+                        transform: none;
+                    }
                 }
                 
                 /* Tablet styles */
