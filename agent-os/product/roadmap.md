@@ -4,7 +4,7 @@
 
 2. [x] Footer with copyright and social media — Create a footer section with copyright information and social media links, along with any additional footer content, all styled to match the tranquil, minimal aesthetic `S`
 
-3. [ ] Hero section with nature imagery and CTA — Create hero section featuring a peaceful nature image, the transformative message "I finally know myself!", business name (Lumhara), brief description, and prominent call-to-action button `S`
+3. [x] Hero section with nature imagery and CTA — Create hero section featuring a peaceful nature image, the transformative message "I finally know myself!", business name (Lumhara), brief description, and prominent call-to-action button `S`
 
 4. [ ] Brief description/philosophy section — Add a section immediately following the hero that presents a brief description of Lumhara's philosophy and approach, providing visitors with deeper context about the Human Systems guidance and compassionate approach to self-discovery `S`
 
