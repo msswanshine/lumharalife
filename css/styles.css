@@ -243,6 +243,216 @@ section p {
     }
 }
 
+/* Offerings section styles */
+#offerings {
+    position: relative;
+    background-color: var(--color-background);
+}
+
+/* Featured offer styles */
+.featured-offer {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background-color: rgba(68, 90, 68, 0.05);
+    border: 2px solid var(--color-accent);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.featured-offer-content {
+    max-width: 100%;
+}
+
+.featured-offer h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2rem;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-md);
+    font-weight: 400;
+}
+
+.featured-offer-description {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+}
+
+.featured-offer-details {
+    margin-bottom: var(--spacing-md);
+}
+
+.featured-offer-details p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.6;
+}
+
+.featured-offer-details p:last-child {
+    margin-bottom: 0;
+}
+
+.featured-offer-details strong {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+/* CTA button styles */
+.cta-button {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background-color: var(--color-accent);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.cta-button:hover {
+    background-color: #354a35;
+    transform: translateY(-2px);
+}
+
+.cta-button:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+/* Offerings grid styles */
+.offerings-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+/* Offering card styles */
+.offering-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(68, 90, 68, 0.2);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.offering-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.offering-card-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.offering-card h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 400;
+}
+
+.offering-description {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+}
+
+.offering-details {
+    margin-bottom: var(--spacing-md);
+}
+
+.offering-details p {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.6;
+}
+
+.offering-details p:last-child {
+    margin-bottom: 0;
+}
+
+.offering-details strong {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.offering-status {
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.offering-card .cta-button {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+}
+
+/* Desktop: 2-3 columns for card grid */
+@media (min-width: 1025px) {
+    .offerings-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+    }
+    
+    .featured-offer {
+        padding: var(--spacing-xl);
+    }
+    
+    .featured-offer h3 {
+        font-size: 2.25rem;
+    }
+}
+
+/* Tablet: 2 columns for card grid */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .offerings-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Mobile: 1 column (stacked) */
+@media (max-width: 768px) {
+    .featured-offer {
+        padding: var(--spacing-md);
+    }
+    
+    .featured-offer h3 {
+        font-size: 1.75rem;
+    }
+    
+    .offering-card {
+        padding: var(--spacing-sm);
+    }
+    
+    .offering-card h3 {
+        font-size: 1.25rem;
+    }
+}
+
 /* Footer component styles are now in the web component's Shadow DOM */
 lumhara-footer {
     display: block;
