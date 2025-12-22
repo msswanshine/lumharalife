@@ -8,7 +8,7 @@
 
 4. [x] Brief description/philosophy section — Add a section immediately following the hero that presents a brief description of Lumhara's philosophy and approach, providing visitors with deeper context about the Human Systems guidance and compassionate approach to self-discovery `S`
 
-5. [ ] Offerings showcase section — Display all service offerings (one-on-one sessions, workshops, composite analysis, business personnel dynamics consulting) with clear descriptions and visual presentation on the homepage `M`
+5. [x] Offerings showcase section — Display all service offerings (one-on-one sessions, workshops, composite analysis, business personnel dynamics consulting) with clear descriptions and visual presentation on the homepage `M`
 
 6. [ ] Testimonials section — Create a testimonials section on the homepage to showcase client feedback and social proof, building trust with visitors `S`
 
