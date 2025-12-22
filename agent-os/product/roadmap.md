@@ -12,7 +12,7 @@
 
 6. [ ] Testimonials section — Create a testimonials section on the homepage to showcase client feedback and social proof, building trust with visitors `S`
 
-7. [ ] Coming Soon section — Create a "Coming Soon" section on the homepage that showcases upcoming projects and products, starting with "Lumhara - Tide" (an emotional wave tracking app), including brief descriptions and newsletter signup forms for each item so visitors can stay informed about development progress `S`
+7. [x] Coming Soon section — Create a "Coming Soon" section on the homepage that showcases upcoming projects and products, starting with "Lumhara - Tide" (an emotional wave tracking app), including brief descriptions and newsletter signup forms for each item so visitors can stay informed about development progress `S`
 
 8. [ ] About Me page — Create a separate About Me page that shares the story, philosophy, and approach of the Human Systems Guide, building personal connection and trust `M`
 

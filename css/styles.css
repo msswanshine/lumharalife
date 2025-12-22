@@ -453,6 +453,292 @@ section p {
     }
 }
 
+/* Coming Soon section styles */
+#coming-soon {
+    position: relative;
+    background-color: var(--color-background);
+}
+
+.coming-soon-card {
+    position: relative;
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-xl);
+    background-color: rgba(68, 90, 68, 0.08);
+    border: 2px solid var(--color-accent);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.coming-soon-badge {
+    position: absolute;
+    top: -1rem;
+    right: var(--spacing-md);
+    background-color: var(--color-accent);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.coming-soon-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.coming-soon-logo {
+    text-align: center;
+}
+
+.coming-soon-logo img {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.coming-soon-text {
+    text-align: center;
+}
+
+.coming-soon-card h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-md);
+    font-weight: 400;
+}
+
+.coming-soon-description {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-lg);
+}
+
+.coming-soon-card .cta-button {
+    margin: 0 auto;
+}
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+}
+
+.modal-container {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    max-height: 90vh;
+    width: 100%;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+    background-color: transparent;
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 1002;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+.modal-close:hover {
+    background-color: var(--color-accent);
+    color: #ffffff;
+}
+
+.modal-close:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+.modal-close:active {
+    transform: scale(0.95);
+}
+
+.modal-content {
+    padding: var(--spacing-xl);
+    overflow: auto;
+    max-height: 90vh;
+}
+
+.modal-iframe {
+    width: 100%;
+    min-height: 600px;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Screen reader only class */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Modal animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.modal.fade-in .modal-backdrop,
+.modal.fade-in .modal-container {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal.fade-out .modal-backdrop,
+.modal.fade-out .modal-container {
+    animation: fadeOut 0.3s ease-in-out;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    .modal.fade-in .modal-backdrop,
+    .modal.fade-in .modal-container,
+    .modal.fade-out .modal-backdrop,
+    .modal.fade-out .modal-container {
+        animation: none;
+    }
+}
+
+/* Desktop: Two-column layout for coming soon card */
+@media (min-width: 1025px) {
+    .coming-soon-content {
+        grid-template-columns: 1fr 2fr;
+        gap: var(--spacing-xl);
+        align-items: center;
+    }
+    
+    .coming-soon-logo {
+        text-align: left;
+    }
+    
+    .coming-soon-text {
+        text-align: left;
+    }
+    
+    .coming-soon-card h3 {
+        font-size: 3rem;
+    }
+    
+    .coming-soon-card {
+        padding: var(--spacing-xl) var(--spacing-xl);
+    }
+}
+
+/* Tablet: Adjusted spacing */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .coming-soon-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .coming-soon-card h3 {
+        font-size: 2.25rem;
+    }
+}
+
+/* Mobile: Stacked layout */
+@media (max-width: 768px) {
+    .coming-soon-card {
+        padding: var(--spacing-md);
+    }
+    
+    .coming-soon-card h3 {
+        font-size: 2rem;
+    }
+    
+    .coming-soon-logo img {
+        max-width: 150px;
+    }
+    
+    .modal-container {
+        max-height: 95vh;
+        margin: var(--spacing-sm);
+    }
+    
+    .modal-content {
+        padding: var(--spacing-md);
+    }
+    
+    .modal-iframe {
+        min-height: 500px;
+    }
+    
+    .modal-close {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 36px;
+        height: 36px;
+        font-size: 1.25rem;
+    }
+}
+
 /* Footer component styles are now in the web component's Shadow DOM */
 lumhara-footer {
     display: block;

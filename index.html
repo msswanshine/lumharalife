@@ -110,6 +110,24 @@
             </div>
         </section>
 
+        <section id="coming-soon">
+            <h2>Coming Soon</h2>
+            
+            <article class="coming-soon-card" aria-label="Lumhara - Tide coming soon">
+                <span class="coming-soon-badge">Coming Soon</span>
+                <div class="coming-soon-content">
+                    <div class="coming-soon-logo">
+                        <img src="assets/images/lumhara-tide_logo.png" alt="Lumhara - Tide logo, stylized wave graphic" />
+                    </div>
+                    <div class="coming-soon-text">
+                        <h3>Lumhara - Tide</h3>
+                        <p class="coming-soon-description">An emotional wave tracking experience that helps you understand, time, and move with your unique emotional rhythms</p>
+                        <button class="cta-button" id="newsletter-signup-btn" aria-label="Sign up for updates about Lumhara - Tide and other upcoming projects">Sign Up for Updates</button>
+                    </div>
+                </div>
+            </article>
+        </section>
+
         <section id="testimonials">
             <h2>Testimonials</h2>
             <p>Placeholder content for testimonials section.</p>
@@ -123,10 +141,31 @@
 
     <lumhara-footer></lumhara-footer>
 
+    <!-- Newsletter Signup Modal -->
+    <div id="newsletter-modal" class="modal" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true" role="dialog">
+        <div class="modal-backdrop" aria-label="Close modal"></div>
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close newsletter signup form" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-content">
+                <h2 id="modal-title" class="sr-only">Newsletter Signup - Lumhara - Tide</h2>
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSf_FQ3oPoLET6eaHx5Y-9hU8Ss9_cntyzWZbEaxKIiBQUxxrg/viewform?usp=dialog"
+                    title="Lumhara Newsletter & Tide Early Access Sign Up"
+                    frameborder="0"
+                    allowfullscreen
+                    class="modal-iframe">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
     <script type="module" src="js/lumhara-header.js"></script>
     <script type="module" src="js/lumhara-nav-menu.js"></script>
     <script type="module" src="js/lumhara-hero.js"></script>
     <script type="module" src="js/lumhara-footer.js"></script>
+    <script type="module" src="js/coming-soon-modal.js"></script>
 </body>
 </html>
 
