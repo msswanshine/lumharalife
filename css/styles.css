@@ -739,6 +739,314 @@ section p {
     }
 }
 
+/* Testimonials section styles */
+#testimonials {
+    position: relative;
+    background-color: var(--color-background);
+}
+
+.testimonial-video {
+    margin-bottom: var(--spacing-xl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.testimonial-video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    background-color: #000;
+}
+
+.testimonial-video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.testimonial-card {
+    background-color: #ffffff;
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(68, 90, 68, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.testimonial-quote {
+    margin: 0 0 var(--spacing-md) 0;
+    padding: 0;
+    border: none;
+    font-style: italic;
+}
+
+.testimonial-quote p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.testimonial-author {
+    margin-top: auto;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(68, 90, 68, 0.1);
+}
+
+.testimonial-name {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.125rem;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-xs);
+    font-weight: 400;
+}
+
+.testimonial-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin: 0;
+    font-weight: 300;
+}
+
+/* Desktop: 2 columns for testimonial grid */
+@media (min-width: 1025px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+    }
+    
+    .testimonial-card {
+        padding: var(--spacing-xl);
+    }
+}
+
+/* Tablet: 2 columns for testimonial grid */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    .testimonial-card {
+        padding: var(--spacing-lg);
+    }
+}
+
+/* Mobile: 1 column (stacked) */
+@media (max-width: 768px) {
+    .testimonial-video {
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .testimonial-card {
+        padding: var(--spacing-md);
+    }
+    
+    .testimonial-quote p {
+        font-size: 1rem;
+    }
+    
+    .testimonial-name {
+        font-size: 1rem;
+    }
+}
+
+/* About Me page styles */
+#about-intro {
+    padding-top: calc(var(--spacing-xl) + 60px); /* Account for fixed header */
+}
+
+.about-intro-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.about-intro-image {
+    text-align: center;
+}
+
+.about-intro-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(68, 90, 68, 0.1);
+}
+
+.about-intro-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.about-lead {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-md);
+    font-weight: 400;
+}
+
+#about-story,
+#about-approach,
+#about-work,
+#about-invitation {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-story-content,
+.about-work-content,
+.about-invitation-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-approach-content {
+    display: grid;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+}
+
+.about-approach-item {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    border: 1px solid rgba(68, 90, 68, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.about-approach-item h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 400;
+}
+
+.about-approach-item p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.about-cta {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-top: var(--spacing-md);
+}
+
+.cta-link {
+    color: var(--color-accent);
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.cta-link:hover {
+    color: var(--color-text);
+}
+
+.cta-link:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Desktop: 2-3 columns for approach items */
+@media (min-width: 1025px) {
+    .about-intro-content {
+        grid-template-columns: 1fr 1.5fr;
+        gap: var(--spacing-xl);
+        align-items: center;
+    }
+    
+    .about-intro-image {
+        text-align: left;
+    }
+    
+    .about-intro-image img {
+        max-width: 400px;
+    }
+    
+    .about-approach-content {
+        gap: var(--spacing-xl);
+    }
+    
+    .about-approach-item {
+        padding: var(--spacing-xl);
+    }
+}
+
+/* Tablet: 2 columns for approach items */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .about-intro-content {
+        grid-template-columns: 1fr 1.5fr;
+        gap: var(--spacing-lg);
+        align-items: center;
+    }
+    
+    .about-intro-image img {
+        max-width: 350px;
+    }
+    
+    .about-approach-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Mobile: 1 column (stacked) */
+@media (max-width: 768px) {
+    #about-intro {
+        padding-top: calc(var(--spacing-lg) + 60px);
+    }
+    
+    .about-lead {
+        font-size: 1.25rem;
+    }
+    
+    .about-approach-item {
+        padding: var(--spacing-md);
+    }
+    
+    .about-approach-item h3 {
+        font-size: 1.25rem;
+    }
+}
+
 /* Footer component styles are now in the web component's Shadow DOM */
 lumhara-footer {
     display: block;

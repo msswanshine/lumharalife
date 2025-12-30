@@ -94,7 +94,7 @@ class LumharaHero extends HTMLElement {
                     position: relative;
                     width: 100%;
                     min-height: 100vh;
-                    background-image: url('assets/images/home_hero.png');
+                    background-image: url('assets/images/home_hero_v2.png');
                     background-size: cover;
                     background-position: center 55%;
                     background-repeat: no-repeat;
@@ -115,10 +115,10 @@ class LumharaHero extends HTMLElement {
                     right: 0;
                     bottom: 0;
                     background: linear-gradient(to bottom, 
-                        rgba(255, 255, 255, 0.5) 0%, 
-                        rgba(255, 255, 255, 0.3) 30%,
+                        rgba(255, 255, 255, 0.5) 100%, 
+                        rgba(255, 255, 255, 0.3) 80%,
                         rgba(255, 255, 255, 0.2) 60%,
-                        rgba(255, 255, 255, 0.25) 100%);
+                        rgba(255, 255, 255, 0.25) 0%);
                     z-index: 1;
                 }
                 
@@ -126,7 +126,7 @@ class LumharaHero extends HTMLElement {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    justify-content: space-between;
+                    justify-content: flex-end;
                     z-index: 2;
                     text-align: center;
                     max-width: 700px;
@@ -136,12 +136,11 @@ class LumharaHero extends HTMLElement {
                 }
 
                 .hero-content-top {
-                    padding-top: 14rem;
                     width: 100%;
                 }
 
                 .hero-content-bottom {
-                    padding-bottom: 8rem;
+                    padding-bottom: 4rem;
                     width: 100%;
                 }
  
