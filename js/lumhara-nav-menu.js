@@ -176,7 +176,7 @@ class LumharaNavMenu extends HTMLElement {
                         <a href="about.html" class="menu-link">About Me</a>
                     </li>
                     <li class="menu-item">
-                        <a href="#contact" class="menu-link">Contact</a>
+                        <a href="contact.html" class="menu-link">Contact</a>
                     </li>
                 </ul>
             </nav>

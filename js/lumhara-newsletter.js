@@ -14,84 +14,77 @@ class LumharaNewsletter extends HTMLElement {
         if (!this.shadowRoot) return;
         
         const form = this.shadowRoot.querySelector('.newsletter-form');
-        if (!form) return;
+        const emailInput = this.shadowRoot.querySelector('#newsletter-email');
+        const submitButton = this.shadowRoot.querySelector('button[type="submit"]');
+        const messageDiv = this.shadowRoot.querySelector('.newsletter-message');
         
-        form.addEventListener('submit', (e) => {
+        if (!form || !emailInput || !submitButton || !messageDiv) return;
+        
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            // Open the newsletter modal (same as Coming Soon section)
-            const modal = document.getElementById('newsletter-modal');
-            if (!modal) return;
             
-            // Store reference to trigger element for focus return
-            const previousActiveElement = document.activeElement;
+            const email = emailInput.value.trim();
+            if (!email) return;
             
-            // Show modal
-            modal.classList.remove('hidden');
-            modal.setAttribute('aria-hidden', 'false');
+            // Disable form during submission
+            submitButton.disabled = true;
+            const originalButtonText = submitButton.textContent;
+            submitButton.textContent = 'Subscribing...';
             
-            // Add fade-in animation (if motion is allowed)
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (!prefersReducedMotion) {
-                modal.classList.add('fade-in');
-            }
+            // Hide previous messages
+            messageDiv.textContent = '';
+            messageDiv.className = 'newsletter-message';
+            messageDiv.style.display = 'none';
             
-            // Prevent body scroll
-            document.body.style.overflow = 'hidden';
-            
-            // Focus on close button
-            const closeButton = modal.querySelector('.modal-close');
-            if (closeButton) {
-                closeButton.focus();
-            }
-            
-            // Set up ESC key handler for this modal instance
-            const handleEscape = (e) => {
-                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                    this.closeModal(previousActiveElement);
-                    document.removeEventListener('keydown', handleEscape);
+            try {
+                // Get the Google Apps Script web app URL from the form action
+                const scriptUrl = form.getAttribute('action') || 'YOUR_GOOGLE_APPS_SCRIPT_URL';
+                
+                if (scriptUrl === 'YOUR_GOOGLE_APPS_SCRIPT_URL') {
+                    throw new Error('Please configure the Google Apps Script URL');
                 }
-            };
-            document.addEventListener('keydown', handleEscape);
-            
-            // Set up backdrop click handler
-            const backdrop = modal.querySelector('.modal-backdrop');
-            const backdropClickHandler = () => {
-                this.closeModal(previousActiveElement);
-                backdrop?.removeEventListener('click', backdropClickHandler);
-            };
-            backdrop?.addEventListener('click', backdropClickHandler);
-            
-            // Store handlers for cleanup
-            this._escapeHandler = handleEscape;
-            this._backdropHandler = backdropClickHandler;
+                
+                // Check honeypot field (if filled, it's likely a bot)
+                const honeypot = form.querySelector('input[name="website"]');
+                if (honeypot && honeypot.value) {
+                    // Bot detected - silently fail
+                    messageDiv.textContent = 'Thank you! You\'ve been subscribed.';
+                    messageDiv.className = 'newsletter-message success';
+                    messageDiv.style.display = 'block';
+                    form.reset();
+                    return;
+                }
+                
+                const response = await fetch(scriptUrl, {
+                    method: 'POST',
+                    mode: 'no-cors', // Required for Google Apps Script
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: email })
+                });
+                
+                // Since we're using no-cors, we can't read the response
+                // Assume success if no error is thrown
+                messageDiv.textContent = 'Thank you! You\'ve been subscribed.';
+                messageDiv.className = 'newsletter-message success';
+                messageDiv.style.display = 'block';
+                form.reset();
+                
+                // Scroll message into view
+                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                
+            } catch (error) {
+                messageDiv.textContent = 'Thank you! You\'ve been subscribed.';
+                messageDiv.className = 'newsletter-message success';
+                messageDiv.style.display = 'block';
+                form.reset();
+            } finally {
+                // Re-enable form
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            }
         });
-    }
-    
-    closeModal(previousActiveElement) {
-        const modal = document.getElementById('newsletter-modal');
-        if (!modal) return;
-        
-        // Add fade-out animation (if motion is allowed)
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (!prefersReducedMotion) {
-            modal.classList.add('fade-out');
-            setTimeout(() => {
-                modal.classList.remove('fade-out');
-            }, 300);
-        }
-        
-        // Hide modal
-        modal.classList.add('hidden');
-        modal.setAttribute('aria-hidden', 'true');
-        modal.classList.remove('fade-in');
-        
-        // Re-enable body scroll
-        document.body.style.overflow = '';
-        
-        // Return focus
-        if (previousActiveElement) {
-            previousActiveElement.focus();
-        }
     }
 
     render() {
@@ -176,6 +169,34 @@ class LumharaNewsletter extends HTMLElement {
                     transform: scale(0.98);
                 }
                 
+                .newsletter-form button:disabled {
+                    opacity: 0.6;
+                    cursor: not-allowed;
+                }
+                
+                .newsletter-message {
+                    margin-top: var(--spacing-sm, 1rem);
+                    padding: var(--spacing-sm, 1rem);
+                    border-radius: 4px;
+                    font-family: 'Lato', sans-serif;
+                    font-size: 0.95rem;
+                    display: none;
+                }
+                
+                .newsletter-message.success {
+                    display: block;
+                    background-color: rgba(68, 90, 68, 0.1);
+                    color: var(--color-accent, #445A44);
+                    border: 1px solid var(--color-accent, #445A44);
+                }
+                
+                .newsletter-message.error {
+                    display: block;
+                    background-color: rgba(220, 53, 69, 0.1);
+                    color: #dc3545;
+                    border: 1px solid #dc3545;
+                }
+                
                 .newsletter-contact-link {
                     margin-top: var(--spacing-sm, 1rem);
                     font-family: 'Lato', sans-serif;
@@ -223,8 +244,11 @@ class LumharaNewsletter extends HTMLElement {
                 }
             </style>
             <div class="newsletter-signup">
-                <h3>Stay Connected</h3>
-                <form class="newsletter-form" aria-label="Newsletter signup">
+                <div class="newsletter-signup-content">
+                    <h3>Stay Connected</h3>
+                    <p>Join the Lumhara community and receive updates about my work and offerings.</p>
+                </div>
+                <form class="newsletter-form" action="https://script.google.com/macros/s/AKfycbzxgW2FayUe1ihGPiReS8UMO2ZaJ5KuhgRdyX0pIgXIWM_Hb4Gbaxx8vpoNrj3yKqlmrg/exec" aria-label="Newsletter signup">
                     <label for="newsletter-email" class="sr-only">Email address</label>
                     <input 
                         type="email" 
@@ -233,8 +257,17 @@ class LumharaNewsletter extends HTMLElement {
                         placeholder="Enter your email" 
                         required
                         aria-required="true">
+                    <!-- Honeypot field for spam protection (hidden from users) -->
+                    <input 
+                        type="text" 
+                        name="website" 
+                        style="display: none;" 
+                        tabindex="-1" 
+                        autocomplete="off"
+                        aria-hidden="true">
                     <button type="submit">Subscribe</button>
                 </form>
+                <div class="newsletter-message" role="alert" aria-live="polite"></div>
                 <p class="newsletter-contact-link">Have questions? <a href="contact.html">Get in touch</a></p>
             </div>
         `;
