@@ -10,15 +10,15 @@
 
 5. [x] Offerings showcase section — Display all service offerings (one-on-one sessions, workshops, composite analysis, business personnel dynamics consulting) with clear descriptions and visual presentation on the homepage `M`
 
-6. [ ] Testimonials section — Create a testimonials section on the homepage to showcase client feedback and social proof, building trust with visitors `S`
+6. [x] Testimonials section — Create a testimonials section on the homepage to showcase client feedback and social proof, building trust with visitors `S`
 
 7. [x] Coming Soon section — Create a "Coming Soon" section on the homepage that showcases upcoming projects and products, starting with "Lumhara - Tide" (an emotional wave tracking app), including brief descriptions and newsletter signup forms for each item so visitors can stay informed about development progress `S`
 
-8. [ ] About Me page — Create a separate About Me page that shares the story, philosophy, and approach of the Human Systems Guide, building personal connection and trust `M`
+8. [x] About Me page — Create a separate About Me page that shares the story, philosophy, and approach of the Human Systems Guide, building personal connection and trust `M`
 
-9. [ ] Contact information and method — Create a contact section displaying contact information (email, phone, etc.) and implement an inviting and accessible contact form or contact method (email link, contact form, or booking system) that removes barriers to connection `S`
+9. [x] Contact information and method — Create a contact section displaying contact information (email, phone, etc.) and implement an inviting and accessible contact form or contact method (email link, contact form, or booking system) that removes barriers to connection `S`
 
-10. [ ] Newsletter signup — Add a newsletter signup form that allows visitors to subscribe to updates, styled to match the tranquil aesthetic and positioned prominently on the homepage `S`
+10. [x] Newsletter signup — Add a newsletter signup form that allows visitors to subscribe to updates, styled to match the tranquil aesthetic and positioned prominently on the homepage `S`
 
 11. [ ] Watercolor and Japanese brushstroke aesthetic styling — Apply CSS styling to create a peaceful, tranquil, minimal aesthetic with natural watercolor-like effects and Japanese brushstroke elements throughout the site `M`
 

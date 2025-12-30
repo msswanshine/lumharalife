@@ -1,9 +1,29 @@
 /* Base styles and CSS variables */
 :root {
+    /* Primary colors */
     --color-background: #faf8f5; /* Light cream/off-white */
     --color-accent: #445A44; /* Muted green */
     --color-text: #2c2c2c; /* Dark grey for contrast */
     --color-text-light: #666666;
+    
+    /* Pink/Rose colors */
+    --color-petal-blush: #F2B6C6; /* Warm, gentle pink from the blossoms - nurturing, heart-opening */
+    --color-rose-accent: #E6A1B2; /* Softer and slightly deeper; great for accents, buttons, or highlights */
+    
+    /* Gold */
+    --color-inner-light-gold: #F6D37A; /* The glowing "soul light" at the center of the tree - beautiful for CTAs or subtle emphasis */
+    
+    /* Greens - grounded + calming */
+    --color-fresh-leaf-green: #9FC89A; /* Light, spring-like green - ideal for backgrounds or large sections */
+    --color-meadow-green: #7FAF7B; /* Grounding and organic; pairs beautifully with white text */
+    --color-forest-shadow-green: #4F6F57; /* A deeper anchor color for headings, nav, or footers */
+    
+    /* Light & Neutral tones */
+    --color-sunlit-cream: #FBF5E6; /* Perfect as a primary background instead of stark white */
+    --color-warm-mist: #EFE6D8; /* A soft neutral that keeps things airy and elegant */
+    
+    /* Optional accent (from the stream) */
+    --color-soft-water-reflection: #A6C4C9; /* Use sparingly - lovely for dividers, icons, or subtle UI moments */
     
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
@@ -1044,6 +1064,128 @@ section p {
     
     .about-approach-item h3 {
         font-size: 1.25rem;
+    }
+}
+
+/* Contact section styles */
+#contact {
+    position: relative;
+    background-color: var(--color-background);
+    padding-top: calc(var(--spacing-xl) + 60px); /* Account for fixed header */
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-intro {
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+.contact-intro p {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+}
+
+.contact-intro p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-form {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: var(--spacing-xl);
+    border-radius: 8px;
+    border: 1px solid rgba(68, 90, 68, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-xs);
+}
+
+.required {
+    color: var(--color-accent);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(68, 90, 68, 0.2);
+    border-radius: 4px;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: var(--color-text);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px rgba(68, 90, 68, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form .cta-button {
+    width: 100%;
+    margin-top: var(--spacing-md);
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+}
+
+.form-messages {
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    display: none;
+}
+
+.form-messages.success {
+    display: block;
+    background-color: rgba(68, 90, 68, 0.1);
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+}
+
+.form-messages.error {
+    display: block;
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+/* Mobile: Adjust contact form */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: var(--spacing-lg);
+    }
+    
+    .contact-intro {
+        margin-bottom: var(--spacing-lg);
     }
 }
 

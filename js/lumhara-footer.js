@@ -50,8 +50,7 @@ class LumharaFooter extends HTMLElement {
                     align-items: start;
                 }
                 
-                .contact-info h3,
-                .newsletter-signup h3 {
+                .contact-info h3 {
                     font-family: Georgia, 'Times New Roman', serif;
                     font-size: 1.5rem;
                     color: var(--color-accent, #445A44);
@@ -78,68 +77,9 @@ class LumharaFooter extends HTMLElement {
                     outline: none;
                 }
                 
-                .newsletter-form {
-                    display: flex;
-                    gap: var(--spacing-sm, 1rem);
-                    flex-wrap: wrap;
-                }
-                
-                .newsletter-form input[type="email"] {
-                    flex: 1;
-                    min-width: 200px;
-                    padding: 0.75rem 1rem;
-                    border: 1px solid rgba(0, 0, 0, 0.1);
-                    border-radius: 4px;
-                    font-family: 'Lato', sans-serif;
-                    font-size: 1rem;
-                    background-color: #ffffff;
-                    color: var(--color-text, #2c2c2c);
-                    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-                }
-                
-                .newsletter-form input[type="email"]:focus {
-                    outline: none;
-                    border-color: var(--color-accent, #445A44);
-                    box-shadow: 0 0 0 2px rgba(68, 90, 68, 0.1);
-                }
-                
-                .newsletter-form button {
-                    padding: 0.75rem 1.5rem;
-                    background-color: var(--color-accent, #445A44);
-                    color: #ffffff;
-                    border: none;
-                    border-radius: 4px;
-                    font-family: 'Lato', sans-serif;
-                    font-size: 1rem;
-                    font-weight: 400;
-                    cursor: pointer;
-                    transition: background-color 0.2s ease, transform 0.1s ease;
-                    min-height: 44px;
-                }
-                
-                .newsletter-form button:hover {
-                    background-color: #6a8a6a;
-                }
-                
-                .newsletter-form button:focus {
-                    outline: 2px solid var(--color-accent, #445A44);
-                    outline-offset: 2px;
-                }
-                
-                .newsletter-form button:active {
-                    transform: scale(0.98);
-                }
-                
-                .sr-only {
-                    position: absolute;
-                    width: 1px;
-                    height: 1px;
-                    padding: 0;
-                    margin: -1px;
-                    overflow: hidden;
-                    clip: rect(0, 0, 0, 0);
-                    white-space: nowrap;
-                    border-width: 0;
+                lumhara-newsletter {
+                    display: block;
+                    width: 100%;
                 }
                 
                 footer {
@@ -230,18 +170,8 @@ class LumharaFooter extends HTMLElement {
                         gap: var(--spacing-lg, 3rem);
                     }
                     
-                    .contact-info h3,
-                    .newsletter-signup h3 {
+                    .contact-info h3 {
                         font-size: 1.25rem;
-                    }
-                    
-                    .newsletter-form {
-                        flex-direction: column;
-                    }
-                    
-                    .newsletter-form input[type="email"],
-                    .newsletter-form button {
-                        width: 100%;
                     }
                     
                     footer {
@@ -276,24 +206,7 @@ class LumharaFooter extends HTMLElement {
             </style>
             <section class="pre-footer">
                 <div class="pre-footer-content">
-                    <div class="contact-info">
-                        <h3>Get in Touch</h3>
-                        <p>Email: <a href="mailto:contact@lumhara.com">contact@lumhara.com</a></p>
-                    </div>
-                    <div class="newsletter-signup">
-                        <h3>Stay Connected</h3>
-                        <form class="newsletter-form" aria-label="Newsletter signup">
-                            <label for="newsletter-email-footer" class="sr-only">Email address</label>
-                            <input 
-                                type="email" 
-                                id="newsletter-email-footer" 
-                                name="email" 
-                                placeholder="Enter your email" 
-                                required
-                                aria-required="true">
-                            <button type="submit">Subscribe</button>
-                        </form>
-                    </div>
+                    <lumhara-newsletter></lumhara-newsletter>
                 </div>
             </section>
             <footer>
