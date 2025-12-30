@@ -13,3 +13,4 @@ Create an offerings showcase section on the homepage that displays Lumhara's wor
 - Do not display prices for now
 - Support for both live and online versions of workshops
 
+

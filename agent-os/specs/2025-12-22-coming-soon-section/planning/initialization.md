@@ -11,3 +11,4 @@ Create a "Coming Soon" section on the homepage that showcases upcoming projects 
 - Match tranquil, minimal aesthetic
 - Positioned on homepage (likely after offerings, before testimonials or contact)
 
+

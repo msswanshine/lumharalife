@@ -165,3 +165,4 @@ Create an offerings showcase section on the homepage that displays Lumhara's wor
 - Backend functionality
 - Chart creation offer (future feature)
 
+

@@ -82,3 +82,4 @@ Example:
 
 Since we're using `mode: 'no-cors'`, the form will always show success (we can't read the response). The email will still be saved to your sheet. For better error handling, you could set up CORS, but this requires additional configuration.
 
+
