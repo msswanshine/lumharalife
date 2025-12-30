@@ -36,12 +36,36 @@ class LumharaFooter extends HTMLElement {
                 }
                 
                 .pre-footer {
+                    position: relative;
                     padding: var(--spacing-xl, 4rem) var(--spacing-md, 2rem);
-                    background-color: var(--color-background, #faf8f5);
+                    background-image: url('assets/images/newsletter-bg.png');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
                     border-top: 1px solid rgba(0, 0, 0, 0.05);
+                    overflow: hidden;
+                }
+                
+                .pre-footer::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(
+                        to bottom,
+                        var(--color-background, #faf8f5) 0%,
+                        rgba(250, 248, 245, 0.5) 30%,
+                        rgba(250, 248, 245, 0.4) 60%,
+                        var(--color-background, #faf8f5) 100%
+                    );
+                    z-index: 1;
                 }
                 
                 .pre-footer-content {
+                    position: relative;
+                    z-index: 2;
                     max-width: 1200px;
                     margin: 0 auto;
                     display: grid;
@@ -86,7 +110,6 @@ class LumharaFooter extends HTMLElement {
                     background-color: #f5f3f0;
                     border-top: 1px solid rgba(0, 0, 0, 0.08);
                     padding: var(--spacing-lg, 3rem) var(--spacing-md, 2rem);
-                    margin-top: var(--spacing-xl, 4rem);
                 }
                 
                 .footer-content {
