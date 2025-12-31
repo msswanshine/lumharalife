@@ -376,13 +376,13 @@ section p {
 }
 
 /* Our Approach section styles */
-#our-approach {
+#my-approach {
     position: relative;
     background-color: var(--color-background);
 }
 
 /* Subtle background texture/pattern for approach section with watercolor effect */
-#our-approach::before {
+#my-approach::before {
     content: '';
     position: absolute;
     top: 0;
@@ -398,7 +398,7 @@ section p {
     z-index: 0;
 }
 
-#our-approach > h2 {
+#my-approach > h2 {
     position: relative;
     z-index: 1;
     text-align: center;
