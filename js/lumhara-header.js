@@ -30,17 +30,24 @@ class LumharaHeader extends HTMLElement {
     }
 
     handleScroll() {
-        const heroElement = document.querySelector('lumhara-hero');
-        if (!heroElement) return;
-
-        const heroHeight = heroElement.offsetHeight;
         const scrollY = window.scrollY || window.pageYOffset;
+        const heroElement = document.querySelector('lumhara-hero');
         
-        // Add solid background class when scrolled 40% past the hero
-        if (scrollY > heroHeight * 0.3) {
-            this.classList.add('scrolled');
+        if (heroElement) {
+            // Homepage: Add solid background when scrolled 30% past the hero
+            const heroHeight = heroElement.offsetHeight;
+            if (scrollY > heroHeight * 0.3) {
+                this.classList.add('scrolled');
+            } else {
+                this.classList.remove('scrolled');
+            }
         } else {
-            this.classList.remove('scrolled');
+            // Other pages: Add solid background after scrolling 100px
+            if (scrollY > 100) {
+                this.classList.add('scrolled');
+            } else {
+                this.classList.remove('scrolled');
+            }
         }
     }
 

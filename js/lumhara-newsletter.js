@@ -260,11 +260,6 @@ class LumharaNewsletter extends HTMLElement {
                     .newsletter-form {
                         flex-direction: column;
                     }
-                    
-                    .newsletter-form input[type="email"],
-                    .newsletter-form button {
-                        width: 100%;
-                    }
                 }
             </style>
             <div class="newsletter-signup">
