@@ -444,7 +444,7 @@ section p {
 }
 .philosophy-quote blockquote {
     margin: 0;
-    padding: 3rem 0 0;
+    padding: 2rem 0 0;
     border: none;
     font-style: italic;
     position: relative;
@@ -520,6 +520,8 @@ section p {
 .approach-lead strong {
     color: var(--color-forest-shadow-green);
     font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.5;
 }
 
 /* Approach story section */
@@ -627,7 +629,7 @@ section p {
 /* Desktop: Enhanced layout */
 @media (min-width: 1025px) {
     .approach-main-content {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 40% 1fr;
         gap: var(--spacing-xl);
         align-items: start;
     }
