@@ -11,6 +11,40 @@ class LumharaHero extends HTMLElement {
         this.render();
         this.attachEventListeners();
         this.handleReducedMotion();
+        this.handleHashScroll();
+    }
+    
+    handleHashScroll() {
+        // Handle hash in URL on page load with offset
+        if (window.location.hash) {
+            const targetId = window.location.hash.substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                // Wait for page to fully load, then scroll with offset
+                const scrollToHash = () => {
+                    setTimeout(() => {
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - 40;
+                        
+                        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: prefersReducedMotion ? 'auto' : 'smooth'
+                        });
+                    }, 100);
+                };
+                
+                // If page is already loaded, scroll immediately
+                if (document.readyState === 'complete') {
+                    scrollToHash();
+                } else {
+                    // Otherwise wait for load
+                    window.addEventListener('load', scrollToHash);
+                }
+            }
+        }
     }
 
     handleReducedMotion() {
@@ -71,9 +105,13 @@ class LumharaHero extends HTMLElement {
                 // Check for prefers-reduced-motion
                 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                 
-                targetElement.scrollIntoView({
-                    behavior: prefersReducedMotion ? 'auto' : 'smooth',
-                    block: 'start'
+                // Calculate position with 40px offset to account for fixed header
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - 40;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: prefersReducedMotion ? 'auto' : 'smooth'
                 });
             }
         }
@@ -243,39 +281,53 @@ class LumharaHero extends HTMLElement {
                 }
                 
                 .cta-button {
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: .5rem 2rem;
-                    background-color: var(--color-accent, #445A44);
+                    display: inline-block;
+                    padding: 0.75rem 2rem;
+                    background: linear-gradient(135deg, var(--color-accent, #445A44) 0%, var(--color-forest-shadow-green, #4F6F57) 100%);
                     color: #ffffff;
                     text-decoration: none;
+                    border-radius: 4px;
                     font-family: 'Lato', sans-serif;
-                    font-size: 1.125rem;
-                    font-weight: 500;
-                    border-radius: 6px;
-                    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-                    min-height: 48px;
-                    min-width: 160px;
-                    cursor: pointer;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    transition: all 0.3s ease, transform 0.2s ease;
                     border: none;
-                    box-shadow: 0 2px 8px rgba(68, 90, 68, 0.3);
+                    cursor: pointer;
+                    text-align: center;
+                    position: relative;
+                    overflow: hidden;
+                    box-shadow: 0 2px 4px rgba(68, 90, 68, 0.2);
+                }
+                
+                /* Subtle watercolor wash on button */
+                .cta-button::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                    transition: left 0.5s ease;
+                }
+                
+                .cta-button:hover::before {
+                    left: 100%;
                 }
                 
                 .cta-button:hover {
-                    background-color: var(--color-text, #2c2c2c);
+                    background: linear-gradient(135deg, var(--color-meadow-green, #7FAF7B) 0%, var(--color-accent, #445A44) 100%);
                     transform: translateY(-2px);
-                    box-shadow: 0 4px 12px rgba(68, 90, 68, 0.4);
+                    box-shadow: 0 4px 8px rgba(68, 90, 68, 0.3);
                 }
                 
                 .cta-button:active {
                     transform: translateY(0);
-                    box-shadow: 0 2px 6px rgba(68, 90, 68, 0.3);
                 }
                 
                 .cta-button:focus {
-                    outline: 3px solid var(--color-accent, #445A44);
-                    outline-offset: 3px;
+                    outline: 2px solid var(--color-accent, #445A44);
+                    outline-offset: 2px;
                 }
                 
                 .cta-button:focus:not(:focus-visible) {
@@ -283,8 +335,8 @@ class LumharaHero extends HTMLElement {
                 }
                 
                 .cta-button:focus-visible {
-                    outline: 3px solid var(--color-accent, #445A44);
-                    outline-offset: 3px;
+                    outline: 2px solid var(--color-accent, #445A44);
+                    outline-offset: 2px;
                 }
                 
                 /* Respect prefers-reduced-motion for button transitions */

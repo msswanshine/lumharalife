@@ -143,21 +143,45 @@ class LumharaNewsletter extends HTMLElement {
                 }
                 
                 .newsletter-form button {
-                    padding: 0.75rem 1.5rem;
-                    background-color: var(--color-accent, #445A44);
+                    display: inline-block;
+                    padding: 0.75rem 2rem;
+                    background: linear-gradient(135deg, var(--color-accent, #445A44) 0%, var(--color-forest-shadow-green, #4F6F57) 100%);
                     color: #ffffff;
-                    border: none;
+                    text-decoration: none;
                     border-radius: 4px;
                     font-family: 'Lato', sans-serif;
                     font-size: 1rem;
-                    font-weight: 400;
+                    font-weight: 600;
+                    transition: all 0.3s ease, transform 0.2s ease;
+                    border: none;
                     cursor: pointer;
-                    transition: background-color 0.2s ease, transform 0.1s ease;
+                    text-align: center;
+                    position: relative;
+                    overflow: hidden;
+                    box-shadow: 0 2px 4px rgba(68, 90, 68, 0.2);
                     min-height: 44px;
                 }
                 
+                /* Subtle watercolor wash on button */
+                .newsletter-form button::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                    transition: left 0.5s ease;
+                }
+                
+                .newsletter-form button:hover::before {
+                    left: 100%;
+                }
+                
                 .newsletter-form button:hover {
-                    background-color: #6a8a6a;
+                    background: linear-gradient(135deg, var(--color-meadow-green, #7FAF7B) 0%, var(--color-accent, #445A44) 100%);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 8px rgba(68, 90, 68, 0.3);
                 }
                 
                 .newsletter-form button:focus {
@@ -166,7 +190,7 @@ class LumharaNewsletter extends HTMLElement {
                 }
                 
                 .newsletter-form button:active {
-                    transform: scale(0.98);
+                    transform: translateY(0);
                 }
                 
                 .newsletter-form button:disabled {

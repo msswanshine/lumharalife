@@ -173,9 +173,6 @@ class LumharaNavMenu extends HTMLElement {
                         <a href="#testimonials" class="menu-link">Testimonials</a>
                     </li>
                     <li class="menu-item">
-                        <a href="about.html" class="menu-link">About Me</a>
-                    </li>
-                    <li class="menu-item">
                         <a href="contact.html" class="menu-link">Contact</a>
                     </li>
                 </ul>
@@ -201,15 +198,46 @@ class LumharaNavMenu extends HTMLElement {
             link.addEventListener('click', (e) => {
                 const href = link.getAttribute('href');
                 
-                // Handle jump links with smooth scrolling
+                // Handle jump links - navigate to homepage first, then scroll
                 if (href.startsWith('#')) {
                     e.preventDefault();
                     const targetId = href.substring(1);
-                    const targetElement = document.getElementById(targetId);
                     
-                    if (targetElement) {
-                        this.closeMenu();
-                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Determine if we're on the homepage
+                    const currentPath = window.location.pathname;
+                    const isHomePage = currentPath === '/' || 
+                                     currentPath === '/index.html' || 
+                                     currentPath.endsWith('/index.html') ||
+                                     (currentPath.endsWith('/') && !currentPath.includes('/'));
+                    
+                    this.closeMenu();
+                    
+                    if (isHomePage) {
+                        // Already on homepage - scroll to section with smooth behavior
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            // Small delay to ensure menu is closed
+                            setTimeout(() => {
+                                // Calculate position with 40px offset to account for fixed header
+                                const elementPosition = targetElement.getBoundingClientRect().top;
+                                const offsetPosition = elementPosition + window.pageYOffset - 40;
+                                
+                                window.scrollTo({
+                                    top: offsetPosition,
+                                    behavior: 'smooth'
+                                });
+                            }, 100);
+                        }
+                    } else {
+                        // Not on homepage - navigate to homepage with hash
+                        // Calculate relative path to root/index.html
+                        const pathParts = currentPath.split('/').filter(part => part && part !== 'index.html');
+                        const depth = pathParts.length;
+                        const relativePath = depth > 0 ? '../'.repeat(depth) : './';
+                        const homeUrl = `${relativePath}index.html${href}`;
+                        
+                        // Navigate to homepage - browser will scroll to hash on load
+                        window.location.href = homeUrl;
                     }
                 } else {
                     // Regular page links - just close menu

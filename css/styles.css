@@ -284,13 +284,14 @@ section p {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-md);
+    align-items: center;
 }
 
 .approach-headshot {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 0;
     order: 2;
 }
 
@@ -474,7 +475,26 @@ section p {
     .approach-content {
         padding-left: var(--spacing-md);
     }
-
+    
+    .approach-intro {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+    
+    .approach-headshot {
+        order: 1;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .approach-intro-text {
+        order: 2;
+    }
+    
+    .approach-headshot img {
+        width: 250px;
+        height: 250px;
+    }
 }
 
 /* Mobile: Stacked layout */
@@ -494,6 +514,26 @@ section p {
     
     .philosophy-quote blockquote p {
         font-size: 1.25rem;
+    }
+    
+    .approach-intro {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+    
+    .approach-headshot {
+        order: 1;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .approach-intro-text {
+        order: 2;
+    }
+    
+    .approach-headshot img {
+        width: 250px;
+        height: 250px;
     }
     
     .approach-lead {
@@ -582,7 +622,7 @@ section p {
 /* CTA button styles with watercolor effect */
 .cta-button {
     display: inline-block;
-    padding: 0.75rem 2rem;
+    padding: 1.25rem 2rem;
     background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-forest-shadow-green) 100%);
     color: #ffffff;
     text-decoration: none;
