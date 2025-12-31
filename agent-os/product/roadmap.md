@@ -20,11 +20,11 @@
 
 10. [x] Newsletter signup — Add a newsletter signup form that allows visitors to subscribe to updates, styled to match the tranquil aesthetic and positioned prominently on the homepage `S`
 
-11. [ ] Watercolor and Japanese brushstroke aesthetic styling — Apply CSS styling to create a peaceful, tranquil, minimal aesthetic with natural watercolor-like effects and Japanese brushstroke elements throughout the site `M`
+11. [x] Watercolor and Japanese brushstroke aesthetic styling — Apply CSS styling to create a peaceful, tranquil, minimal aesthetic with natural watercolor-like effects and Japanese brushstroke elements throughout the site `M`
 
-12. [ ] Responsive design implementation — Ensure the website is fully responsive and provides an excellent experience across desktop, tablet, and mobile devices `M`
+12. [x] Responsive design implementation — Ensure the website is fully responsive and provides an excellent experience across desktop, tablet, and mobile devices `M`
 
-13. [ ] Interactive enhancements and polish — Add smooth scrolling, subtle animations, and any JavaScript enhancements that enhance the tranquil user experience while maintaining the minimal aesthetic `S`
+13. [x] Interactive enhancements and polish — Add smooth scrolling, subtle animations, and any JavaScript enhancements that enhance the tranquil user experience while maintaining the minimal aesthetic `S`
 
 > Notes
 > - Order items by technical dependencies and product architecture

@@ -419,6 +419,9 @@ section p {
 }
 
 .philosophy-quote {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: relative;
     text-align: center;
     height: 100%;
@@ -451,6 +454,12 @@ section p {
     z-index: 1;
 }
 
+.philosophy-quote blockquote:not(:last-child) {
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid rgba(68, 90, 68, 0.1);
+}
+
 .philosophy-quote blockquote p {
     font-family: 'Lato', sans-serif;
     font-size: 1.5rem;
@@ -477,7 +486,7 @@ section p {
 /* Approach intro with headshot - centered layout */
 .approach-intro {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 60% 40%;
     gap: var(--spacing-md);
     align-items: center;
 }
@@ -512,9 +521,10 @@ section p {
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     line-height: 1.8;
     margin: 0;
+    max-width: 665px;
 }
 
 .approach-lead strong {
@@ -523,6 +533,7 @@ section p {
     font-size: 1.5rem;
     line-height: 1.5;
     margin-bottom: var(--spacing-sm);
+    max-width: 545px;
 }
 
 /* Approach story section */
