@@ -235,7 +235,7 @@ class LumharaFooter extends HTMLElement {
             <footer>
                 <div class="footer-content">
                     <div class="footer-copyright">
-                        <p>&copy; <span id="current-year">2025</span> Lumhara. All rights reserved.</p>
+                        <p>&copy; <span id="current-year">2025</span> Lumhara. Ashland, Or. All rights reserved.</p>
                     </div>
                     <div class="footer-links">
                         <a href="privacy.html">Privacy</a>

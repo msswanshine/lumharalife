@@ -1,0 +1,9 @@
+# Cloudflare Pages configuration for static site
+# This file tells Cloudflare Pages this is a static site, not a Worker
+
+name = "lumhara"
+compatibility_date = "2025-12-31"
+
+# This tells Cloudflare Pages to deploy the root directory as static assets
+pages_build_output_dir = "."
+

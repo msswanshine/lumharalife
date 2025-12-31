@@ -158,7 +158,7 @@ class LumharaNavMenu extends HTMLElement {
             <nav class="menu-overlay" role="navigation" aria-label="Main navigation">
                 <ul class="menu-nav">
                     <li class="menu-item">
-                        <a href="#our-approach" class="menu-link">Our Approach</a>
+                        <a href="#our-approach" class="menu-link">My Approach</a>
                     </li>
                     <li class="menu-item">
                         <a href="#offerings" class="menu-link">Offerings</a>
