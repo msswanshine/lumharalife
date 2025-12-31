@@ -42,6 +42,8 @@ class LumharaNavMenu extends HTMLElement {
                     color: var(--color-text, #2c2c2c);
                     filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8));
                     transition: filter 0.3s ease;
+                    position: relative;
+                    z-index: 1001;
                 }
                 
                 :host-context(lumhara-header.scrolled) .hamburger-button {
@@ -54,8 +56,9 @@ class LumharaNavMenu extends HTMLElement {
                 }
                 
                 .hamburger-line {
-                    width: 24px;
-                    height: 2px;
+                    width: 30px;
+                    height: 4px;
+                    border-radius: 2px;
                     background-color: currentColor;
                     transition: transform 0.3s ease, opacity 0.3s ease;
                 }
@@ -77,23 +80,17 @@ class LumharaNavMenu extends HTMLElement {
                     top: 0;
                     right: 0;
                     width: 100%;
-                    max-width: 400px;
+                    max-width: 300px;
                     height: 100vh;
                     background-color: var(--color-background, #faf8f5);
                     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
                     transform: translateX(100%);
                     transition: transform 0.3s ease;
                     z-index: 1000;
-                    padding: var(--spacing-lg, 3rem) var(--spacing-md, 2rem);
+
                     overflow-y: auto;
                 }
                 
-                @media (max-width: 768px) {
-                    .menu-overlay {
-                        max-width: 100%;
-                        padding: var(--spacing-lg, 3rem) var(--spacing-sm, 1rem);
-                    }
-                }
                 
                 .menu-overlay.open {
                     transform: translateX(0);
@@ -120,12 +117,9 @@ class LumharaNavMenu extends HTMLElement {
                 .menu-nav {
                     list-style: none;
                     padding: 0;
-                    margin: 0;
+                    margin: 60px 0 0 0;
                 }
                 
-                .menu-item {
-                    margin-bottom: var(--spacing-md, 2rem);
-                }
                 
                 .menu-link {
                     display: block;
@@ -133,7 +127,7 @@ class LumharaNavMenu extends HTMLElement {
                     text-decoration: none;
                     font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
                     font-size: 1.25rem;
-                    padding: var(--spacing-sm, 1rem) 0;
+                    padding: var(--spacing-sm) 1rem;
                     min-height: 44px;
                     display: flex;
                     align-items: center;
@@ -142,12 +136,12 @@ class LumharaNavMenu extends HTMLElement {
                 
                 .menu-link:hover,
                 .menu-link:focus {
-                    color: var(--color-accent, #7a9b7a);
+                    background-color: var(--color-forest-shadow-green, #4f6f57);
+                    color: var(--color-background, #faf8f5);
                     outline: none;
                 }
                 
                 .menu-link:focus {
-                    outline: 2px solid var(--color-accent, #7a9b7a);
                     outline-offset: 4px;
                 }
             </style>
