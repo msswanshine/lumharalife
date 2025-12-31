@@ -8,6 +8,45 @@ class LumharaNewsletter extends HTMLElement {
         this.attachShadow({ mode: 'open' });
         this.render();
         this.setupForm();
+        this.checkConsentStatus();
+        // Listen for consent changes
+        window.addEventListener('gdpr-consent-changed', () => this.checkConsentStatus());
+    }
+
+    checkConsentStatus() {
+        const consent = localStorage.getItem('lumhara-cookie-consent');
+        const form = this.shadowRoot?.querySelector('.newsletter-form');
+        const emailInput = this.shadowRoot?.querySelector('#newsletter-email');
+        const submitButton = this.shadowRoot?.querySelector('button[type="submit"]');
+        const messageDiv = this.shadowRoot?.querySelector('.newsletter-message');
+        
+        if (!form || !emailInput || !submitButton || !messageDiv) return;
+
+        if (consent === 'declined') {
+            // Disable form
+            emailInput.disabled = true;
+            submitButton.disabled = true;
+            emailInput.setAttribute('aria-disabled', 'true');
+            submitButton.setAttribute('aria-disabled', 'true');
+            
+            // Show message
+            messageDiv.textContent = 'To subscribe to our newsletter, please accept our cookie and data collection policy.';
+            messageDiv.className = 'newsletter-message info';
+            messageDiv.style.display = 'block';
+        } else if (consent === 'accepted') {
+            // Enable form
+            emailInput.disabled = false;
+            submitButton.disabled = false;
+            emailInput.removeAttribute('aria-disabled');
+            submitButton.removeAttribute('aria-disabled');
+            
+            // Hide info message if it exists
+            if (messageDiv.classList.contains('info')) {
+                messageDiv.style.display = 'none';
+                messageDiv.textContent = '';
+            }
+        }
+        // If no consent choice yet, form remains enabled but will be checked on submit
     }
 
     setupForm() {
@@ -22,6 +61,24 @@ class LumharaNewsletter extends HTMLElement {
         
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
+            
+            // Check GDPR consent before submission
+            const consent = localStorage.getItem('lumhara-cookie-consent');
+            if (consent === 'declined') {
+                messageDiv.textContent = 'To subscribe to our newsletter, please accept our cookie and data collection policy.';
+                messageDiv.className = 'newsletter-message info';
+                messageDiv.style.display = 'block';
+                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                return;
+            }
+            
+            if (!consent) {
+                messageDiv.textContent = 'Please accept or decline our cookie and data collection policy before subscribing.';
+                messageDiv.className = 'newsletter-message info';
+                messageDiv.style.display = 'block';
+                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                return;
+            }
             
             const email = emailInput.value.trim();
             if (!email) return;
@@ -219,6 +276,19 @@ class LumharaNewsletter extends HTMLElement {
                     background-color: rgba(220, 53, 69, 0.1);
                     color: #dc3545;
                     border: 1px solid #dc3545;
+                }
+
+                .newsletter-message.info {
+                    display: block;
+                    background-color: rgba(68, 90, 68, 0.1);
+                    color: var(--color-accent, #445A44);
+                    border: 1px solid var(--color-accent, #445A44);
+                }
+
+                .newsletter-form input[type="email"]:disabled {
+                    opacity: 0.6;
+                    cursor: not-allowed;
+                    background-color: #f5f5f5;
                 }
                 
                 .newsletter-contact-link {

@@ -5,8 +5,68 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (!contactForm) return;
     
+    // Check consent status on load and when it changes
+    function checkConsentStatus() {
+        const consent = localStorage.getItem('lumhara-cookie-consent');
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const inputs = contactForm.querySelectorAll('input, textarea');
+        
+        if (consent === 'declined') {
+            // Disable form
+            inputs.forEach(input => {
+                input.disabled = true;
+                input.setAttribute('aria-disabled', 'true');
+            });
+            submitButton.disabled = true;
+            submitButton.setAttribute('aria-disabled', 'true');
+            
+            // Show message
+            formMessages.textContent = 'To contact us, please accept our cookie and data collection policy.';
+            formMessages.className = 'form-messages info';
+            formMessages.style.display = 'block';
+        } else if (consent === 'accepted') {
+            // Enable form
+            inputs.forEach(input => {
+                input.disabled = false;
+                input.removeAttribute('aria-disabled');
+            });
+            submitButton.disabled = false;
+            submitButton.removeAttribute('aria-disabled');
+            
+            // Hide info message if it exists
+            if (formMessages.classList.contains('info')) {
+                formMessages.style.display = 'none';
+                formMessages.textContent = '';
+            }
+        }
+    }
+    
+    // Check on load
+    checkConsentStatus();
+    
+    // Listen for consent changes
+    window.addEventListener('gdpr-consent-changed', checkConsentStatus);
+    
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        
+        // Check GDPR consent before submission
+        const consent = localStorage.getItem('lumhara-cookie-consent');
+        if (consent === 'declined') {
+            formMessages.textContent = 'To contact us, please accept our cookie and data collection policy.';
+            formMessages.className = 'form-messages info';
+            formMessages.style.display = 'block';
+            formMessages.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            return;
+        }
+        
+        if (!consent) {
+            formMessages.textContent = 'Please accept or decline our cookie and data collection policy before submitting.';
+            formMessages.className = 'form-messages info';
+            formMessages.style.display = 'block';
+            formMessages.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            return;
+        }
         
         // Disable submit button
         const submitButton = contactForm.querySelector('button[type="submit"]');

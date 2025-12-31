@@ -241,6 +241,7 @@ class LumharaFooter extends HTMLElement {
                         <a href="privacy.html">Privacy</a>
                         <a href="terms.html">Terms & Conditions</a>
                         <a href="accessibility.html">Accessibility</a>
+                        <a href="#" id="cookie-preferences-link" onclick="event.preventDefault(); if (typeof showGDPRBanner === 'function') showGDPRBanner(); return false;">Cookie Preferences</a>
                     </div>
 
                 </div>

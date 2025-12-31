@@ -9,13 +9,60 @@ class LumharaGDPRBanner extends HTMLElement {
         // Check if user has already made a choice
         const consent = localStorage.getItem(this.storageKey);
         if (consent) {
-            // User has already made a choice, don't show banner
+            // User has already made a choice, don't show banner initially
             this.style.display = 'none';
+            // But still render it so it can be shown later
+            this.render();
             return;
         }
 
         // User hasn't made a choice, show banner
         this.render();
+        this.attachEventListeners();
+        this.showBanner();
+    }
+
+    showBanner() {
+        // Ensure banner is rendered
+        if (!this.shadowRoot || !this.shadowRoot.querySelector('.gdpr-banner')) {
+            this.render();
+        }
+        
+        // Update text if user has already made a choice
+        const consent = localStorage.getItem(this.storageKey);
+        const descriptionText = this.shadowRoot.querySelector('#gdpr-description');
+        if (descriptionText && consent) {
+            // Clear existing content
+            descriptionText.innerHTML = '';
+            // Add new text
+            const textNode1 = document.createTextNode('You can update your cookie and data collection preferences at any time. By accepting, you consent to our use of cookies and data collection as described in our ');
+            const privacyLink = document.createElement('a');
+            privacyLink.href = 'privacy.html';
+            privacyLink.textContent = 'Privacy Policy';
+            const textNode2 = document.createTextNode('.');
+            descriptionText.appendChild(textNode1);
+            descriptionText.appendChild(privacyLink);
+            descriptionText.appendChild(textNode2);
+        } else if (descriptionText && !consent) {
+            // Reset to original text if no consent exists
+            descriptionText.innerHTML = 'This website uses minimal cookies and collects personal information (email addresses) when you subscribe to our newsletter or contact us. By continuing to use this site, you consent to our use of cookies and data collection as described in our <a href="privacy.html">Privacy Policy</a>.';
+        }
+        
+        // Show the banner
+        this.style.display = 'block';
+        this.style.opacity = '0';
+        this.style.transform = 'translateY(100%)';
+        
+        // Trigger reflow
+        this.offsetHeight;
+        
+        // Animate in
+        requestAnimationFrame(() => {
+            this.style.opacity = '1';
+            this.style.transform = 'translateY(0)';
+        });
+        
+        // Reattach event listeners
         this.attachEventListeners();
     }
 
@@ -48,12 +95,22 @@ class LumharaGDPRBanner extends HTMLElement {
         localStorage.setItem(this.storageKey, 'accepted');
         localStorage.setItem(this.storageKey + '-date', new Date().toISOString());
         this.hideBanner();
+        // Dispatch event so forms can react
+        window.dispatchEvent(new CustomEvent('gdpr-consent-changed', { 
+            detail: { consent: 'accepted' },
+            bubbles: true 
+        }));
     }
 
     handleDecline() {
         localStorage.setItem(this.storageKey, 'declined');
         localStorage.setItem(this.storageKey + '-date', new Date().toISOString());
         this.hideBanner();
+        // Dispatch event so forms can react
+        window.dispatchEvent(new CustomEvent('gdpr-consent-changed', { 
+            detail: { consent: 'declined' },
+            bubbles: true 
+        }));
     }
 
     handleClose() {
@@ -292,4 +349,24 @@ class LumharaGDPRBanner extends HTMLElement {
 
 // Register the custom element
 customElements.define('lumhara-gdpr-banner', LumharaGDPRBanner);
+
+// Utility function to check GDPR consent status
+export function getGDPRConsent() {
+    return localStorage.getItem('lumhara-cookie-consent');
+}
+
+// Utility function to check if consent has been given
+export function hasGDPRConsent() {
+    return getGDPRConsent() === 'accepted';
+}
+
+// Global function to show GDPR banner (called from footer link)
+window.showGDPRBanner = function() {
+    const banner = document.querySelector('lumhara-gdpr-banner');
+    if (banner) {
+        banner.showBanner();
+        // Scroll to banner
+        banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+};
 
