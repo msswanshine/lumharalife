@@ -417,6 +417,7 @@ class LumharaHero extends HTMLElement {
                         font-size: 1.75rem;
                         font-style: italic;
                         font-weight: 500;
+                        line-height: 1.2;
                         color: var(--color-text, #2c2c2c);
                         margin-bottom: var(--spacing-sm, 1rem);
                         min-height: 2rem;
@@ -459,6 +460,7 @@ class LumharaHero extends HTMLElement {
                         font-weight: 400;
                         color: var(--color-text, #2c2c2c);
                         margin-bottom: var(--spacing-md, 2rem);
+                        padding-top: 2rem;
                         line-height: 1.7;
                     }
                 }
