@@ -477,7 +477,7 @@ class LumharaHero extends HTMLElement {
                     </div>
                         <div class="hero-content-bottom">
                         <p class="tagline">Discover your authentic self through integrated Human Systems</p>
-                        <a href="#offerings" class="cta-button" aria-label="Know Thyself - Navigate to offerings section">Know Thyself</a>
+                        <a href="#offerings" class="cta-button" aria-label="Navigate to offerings section">Begin Your Journey</a>
                     </div>
                 </div>
             </div>
