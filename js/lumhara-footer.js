@@ -242,22 +242,24 @@ class LumharaFooter extends HTMLElement {
                         <a href="terms.html">Terms & Conditions</a>
                         <a href="accessibility.html">Accessibility</a>
                     </div>
-                    <div class="footer-social">
-                        <a href="https://substack.com/@lumhara" target="_blank" rel="noopener noreferrer" aria-label="Follow on Substack">
-                            <i class="fab fa-substack" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://instagram.com/lumhara" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram">
-                            <i class="fab fa-instagram" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://youtube.com/@lumhara" target="_blank" rel="noopener noreferrer" aria-label="Follow on YouTube">
-                            <i class="fab fa-youtube" aria-hidden="true"></i>
-                        </a>
-                    </div>
+
                 </div>
             </footer>
         `;
     }
 }
+
+{/* <div class="footer-social">
+<a href="https://substack.com/@lumhara" target="_blank" rel="noopener noreferrer" aria-label="Follow on Substack">
+    <i class="fab fa-substack" aria-hidden="true"></i>
+</a>
+<a href="https://instagram.com/lumhara" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram">
+    <i class="fab fa-instagram" aria-hidden="true"></i>
+</a>
+<a href="https://youtube.com/@lumhara" target="_blank" rel="noopener noreferrer" aria-label="Follow on YouTube">
+    <i class="fab fa-youtube" aria-hidden="true"></i>
+</a>
+</div> */}
 
 // Register the custom element
 customElements.define('lumhara-footer', LumharaFooter);

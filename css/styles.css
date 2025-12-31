@@ -120,6 +120,7 @@ section h1 {
     position: relative;
     display: inline-block;
     padding-bottom: var(--spacing-xs);
+    line-height: 1.25;
 }
 
 /* Japanese brushstroke underline effect for h1 */
@@ -140,6 +141,182 @@ section p {
     color: var(--color-text);
     font-size: 1.125rem;
     line-height: 1.8;
+}
+
+/* Policy, Terms, and Accessibility pages */
+#privacy-policy,
+#terms,
+#accessibility {
+    padding-top: calc(var(--spacing-xl) + 60px); /* Account for fixed header */
+}
+
+/* Ensure h1 styling matches Contact page */
+#privacy-policy h1,
+#terms h1,
+#accessibility h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+    margin-bottom: var(--spacing-md);
+    color: var(--color-forest-shadow-green);
+    font-size: 2.5rem;
+    font-weight: 400;
+    position: relative;
+    display: inline-block;
+    padding-bottom: var(--spacing-xs);
+}
+
+#privacy-policy h1::after,
+#terms h1::after,
+#accessibility h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-petal-blush) 0%, var(--color-inner-light-gold) 50%, transparent 100%);
+    border-radius: 2px;
+    opacity: 0.6;
+    transform: skewX(-15deg);
+}
+
+.policy-intro,
+.terms-intro,
+.accessibility-intro {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+    font-style: italic;
+}
+
+.policy-content,
+.terms-content,
+.accessibility-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.policy-content h2,
+.terms-content h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.75rem;
+    color: var(--color-forest-shadow-green);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    font-weight: 400;
+    position: relative;
+    display: inline-block;
+    padding-bottom: var(--spacing-xs);
+}
+
+.policy-content h2::after,
+.terms-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-petal-blush) 0%, transparent 100%);
+    border-radius: 1px;
+    opacity: 0.6;
+    transform: skewX(-15deg);
+}
+
+.policy-content ul,
+.terms-content ul {
+    margin: var(--spacing-md) 0;
+    padding-left: var(--spacing-lg);
+    line-height: 1.8;
+}
+
+.policy-content li,
+.terms-content li {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+    font-size: 1.125rem;
+}
+
+.policy-content li strong,
+.terms-content li strong {
+    color: var(--color-forest-shadow-green);
+    font-weight: 600;
+}
+
+.policy-content a,
+.terms-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.policy-content a:hover,
+.terms-content a:hover,
+.accessibility-content a:hover,
+.policy-content a:focus,
+.terms-content a:focus,
+.accessibility-content a:focus {
+    color: var(--color-forest-shadow-green);
+    outline: none;
+}
+
+.accessibility-intro {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+    font-style: italic;
+}
+
+.accessibility-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accessibility-content h2 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.75rem;
+    color: var(--color-forest-shadow-green);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    font-weight: 400;
+    position: relative;
+    display: inline-block;
+    padding-bottom: var(--spacing-xs);
+}
+
+.accessibility-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-petal-blush) 0%, transparent 100%);
+    border-radius: 1px;
+    opacity: 0.6;
+    transform: skewX(-15deg);
+}
+
+.accessibility-content ul {
+    margin: var(--spacing-md) 0;
+    padding-left: var(--spacing-lg);
+    line-height: 1.8;
+}
+
+.accessibility-content li {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+    font-size: 1.125rem;
+}
+
+.accessibility-content li strong {
+    color: var(--color-forest-shadow-green);
+    font-weight: 600;
+}
+
+.accessibility-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    transition: color 0.2s ease;
 }
 
 /* Responsive design */
