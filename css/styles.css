@@ -211,8 +211,26 @@ section p {
 .philosophy-quote {
     position: relative;
     text-align: center;
+    height: 100%;
     max-width: 600px;
     margin: 0 auto;
+    background-image: url('../assets/images/yinyang.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+.philosophy-quote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(250, 248, 245, 0.9);
+    z-index: 0;
+    pointer-events: none;
 }
 
 /* Japanese brushstroke decorative element */
@@ -235,6 +253,7 @@ section p {
     border: none;
     font-style: italic;
     position: relative;
+    z-index: 1;
 }
 
 .philosophy-quote blockquote p {
@@ -276,8 +295,8 @@ section p {
 }
 
 .approach-headshot img {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     object-fit: cover;
     object-position: 0 -15px;
@@ -291,6 +310,12 @@ section p {
 }
 
 .approach-lead {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     font-size: 1.25rem;
     line-height: 1.8;
     margin: 0;
