@@ -84,7 +84,6 @@ class LumharaHeader extends HTMLElement {
                 
                 .logo-link {
                     display: flex;
-                    align-items: center;
                     gap: 0.5rem;
                     text-decoration: none;
                 }
@@ -95,6 +94,10 @@ class LumharaHeader extends HTMLElement {
                     display: block;
                     filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8));
                     transition: filter 0.3s ease;
+                }
+
+                .text-logo {
+                    margin-top: 5px;
                 }
                 
                 :host(.scrolled) .logo {
@@ -123,8 +126,8 @@ class LumharaHeader extends HTMLElement {
             </style>
             <div class="header">
                 <a href="index.html" class="logo-link" aria-label="Lumhara Home">
-                    <img src="assets/images/lumhara_logo_nav.png" alt="Lumhara Logo" class="logo">
-                    <span class="logo-text">Lumhara</span>
+                    <img src="assets/images/lumhara_logo_nav.png" alt="Flame Logo" class="logo">
+                    <img src="assets/images/CroppedBlackLogo.png" alt="Lumhara Life" class="logo text-logo">
                 </a>
                 <div class="menu-button-container">
                     <lumhara-nav-menu></lumhara-nav-menu>

@@ -181,12 +181,39 @@ class LumharaHero extends HTMLElement {
                     padding-bottom: 4rem;
                     width: 100%;
                 }
+
+                .logo-container {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                }
  
                 .hero-logo {
-                    height: 8rem;
+                    height: 7rem;
                     width: auto;
                     display: block;
-                    margin: 0 auto;
+                    margin-right: 0.5rem;
+                }
+
+                .sr-only {
+                    position: absolute;
+                    width: 1px;
+                    height: 1px;
+                    padding: 0;
+                    margin: -1px;
+                    overflow: hidden;
+                    clip: rect(0, 0, 0, 0);
+                    white-space: nowrap;
+                    border-width: 0;
+                }
+
+                .text-logo {
+                    margin-top: 26px;
+                    height: 120px;
+                    width: auto;
+                    display: block;
                 }
 
                 .hero-content h1 {
@@ -367,12 +394,12 @@ class LumharaHero extends HTMLElement {
                         min-height: 50vh;
                         flex-direction: column;
                         align-items: stretch;
-                        justify-content: flex-start;
+                        justify-content: flex-end;
                         background-position: center 45%;
                     }
                     
                     .hero-content-top {
-                        padding-top: 6rem;
+                        padding-bottom: 2rem;
                     }
 
                     .hero-content {
@@ -384,6 +411,13 @@ class LumharaHero extends HTMLElement {
 
                     .hero-logo {
                         height: 4rem;
+                    }
+
+                    .text-logo {
+                        margin-top: 16px;
+                        height: 80px;
+                        width: auto;
+                        display: block;
                     }
                     
                     .hero-content h1 {
@@ -442,6 +476,19 @@ class LumharaHero extends HTMLElement {
                     .hero-mobile-content .message-text:nth-child(3) {
                         animation-delay: 8s;
                     }
+
+                    @media (max-width: 426px) {
+                        .hero-logo {
+                            height: 3rem;
+                        }
+
+                        .text-logo {
+                            margin-top: 8px;
+                            height: 60px;
+                            width: auto;
+                            display: block;
+                        }
+                    }
                     
                     @media (prefers-reduced-motion: reduce) {
                         .hero-mobile-content .message-text {
@@ -468,9 +515,11 @@ class LumharaHero extends HTMLElement {
             <div class="hero-container" role="img" aria-label="Peaceful forest scene with glowing plant">
                 <div class="hero-content">
                     <div class="hero-content-top">
-                    <img src="assets/images/lumhara_logo.png" alt="Lumhara Logo" class="hero-logo">
-                        <h1>Lumhara</h1>
-                
+                        <h1 class="sr-only">Lumhara Life Logo</h1>
+                        <div class="logo-container">
+                            <img src="assets/images/lumhara_logo.png" alt="Lumhara Logo" class="hero-logo">
+                            <img src="assets/images/CroppedGrayLogo.png" alt="Lumhara Life Logo" class="logo text-logo">
+                        </div>
                         <div class="decoded-message" aria-live="polite">
                             <span class="message-text">lum = lumen/light</span>
                             <span class="message-text">hara = Japanese for 'core'</span>
