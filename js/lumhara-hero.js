@@ -92,6 +92,35 @@ class LumharaHero extends HTMLElement {
                 }
             });
         });
+
+        // Scroll indicator click handler
+        const scrollIndicator = this.shadowRoot.querySelector('.scroll-indicator');
+        if (scrollIndicator) {
+            scrollIndicator.addEventListener('click', this.handleScrollIndicatorClick.bind(this));
+            scrollIndicator.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.handleScrollIndicatorClick(e);
+                }
+            });
+        }
+    }
+
+    handleScrollIndicatorClick(e) {
+        e.preventDefault();
+        // Scroll to the next section (offerings) with offset
+        const targetElement = document.getElementById('offerings');
+        
+        if (targetElement) {
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - 40;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: prefersReducedMotion ? 'auto' : 'smooth'
+            });
+        }
     }
 
     handleCTAClick(e) {
@@ -178,8 +207,70 @@ class LumharaHero extends HTMLElement {
                 }
 
                 .hero-content-bottom {
-                    padding-bottom: 4rem;
+                    padding-bottom: 7rem;
                     width: 100%;
+                }
+
+                .scroll-indicator {
+                    position: absolute;
+                    bottom: 2rem;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 3;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 0.5rem;
+                    opacity: 0.8;
+                    transition: opacity 0.3s ease;
+                }
+
+                .scroll-indicator:hover {
+                    opacity: 1;
+                }
+
+                .scroll-indicator-arrow {
+                    width: 24px;
+                    height: 24px;
+                    border-right: 3px solid var(--color-accent, #445A44);
+                    border-bottom: 3px solid var(--color-accent, #445A44);
+                    transform: rotate(45deg);
+                    animation: bounce 2s infinite;
+                }
+
+                @keyframes bounce {
+                    0%, 20%, 50%, 80%, 100% {
+                        transform: translateY(0) rotate(45deg);
+                    }
+                    40% {
+                        transform: translateY(-10px) rotate(45deg);
+                    }
+                    60% {
+                        transform: translateY(-5px) rotate(45deg);
+                    }
+                }
+
+                .scroll-indicator-text {
+                    font-family: 'Lato', sans-serif;
+                    font-size: 0.875rem;
+                    color: var(--color-accent, #445A44);
+                    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+                    font-weight: 500;
+                }
+
+                /* Hide on mobile and tablet */
+                @media (max-width: 768px) {
+                    .scroll-indicator {
+                        display: none;
+                    }
+                }
+
+                /* Respect prefers-reduced-motion */
+                @media (prefers-reduced-motion: reduce) {
+                    .scroll-indicator-arrow {
+                        animation: none;
+                    }
                 }
 
                 .logo-container {
@@ -233,7 +324,6 @@ class LumharaHero extends HTMLElement {
                     font-style: italic;
                     font-weight: 500;
                     color: var(--color-text, #2c2c2c);
-                    margin-bottom: var(--spacing-md, 2rem);
                     min-height: 2.5rem;
                     text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
                     position: relative;
@@ -302,7 +392,7 @@ class LumharaHero extends HTMLElement {
                     font-size: 1.5rem;
                     font-weight: 400;
                     color: var(--color-text, #2c2c2c);
-                    margin-bottom: var(--spacing-lg, 3rem);
+                    margin-bottom: var(--spacing-sm, 3rem);
                     line-height: 1.7;
                     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
                 }
@@ -530,6 +620,10 @@ class LumharaHero extends HTMLElement {
                         <p class="tagline">Discover your authentic self through integrated Human Systems</p>
                         <a href="#offerings" class="cta-button" aria-label="Navigate to offerings section">Begin Your Journey</a>
                     </div>
+                </div>
+                <div class="scroll-indicator" aria-label="Scroll to see more content" role="button" tabindex="0">
+                    <div class="scroll-indicator-arrow" aria-hidden="true"></div>
+                    <span class="scroll-indicator-text">Scroll</span>
                 </div>
             </div>
             <div class="hero-mobile-content">
