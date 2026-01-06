@@ -808,7 +808,13 @@ section p {
     font-family: Georgia, 'Times New Roman', serif;
     font-size: 2rem;
     color: var(--color-accent);
-    margin-bottom: var(--spacing-md);
+    font-weight: 400;
+}
+
+.featured-offer h4 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.25rem;
+    color: var(--color-text);
     font-weight: 400;
 }
 
