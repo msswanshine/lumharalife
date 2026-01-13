@@ -46,8 +46,10 @@ class ComingSoonModal {
         // Store reference to trigger button for focus return
         this.previousActiveElement = document.activeElement;
         
-        // Show modal
+        // Show modal - remove hidden class and inline style
         this.modal.classList.remove('hidden');
+        this.modal.style.display = ''; // Remove inline style to allow CSS to control display
+        this.modal.style.pointerEvents = ''; // Reset pointer events
         this.modal.setAttribute('aria-hidden', 'false');
         
         // Add fade-in animation (if motion is allowed)
@@ -68,19 +70,27 @@ class ComingSoonModal {
     closeModal() {
         if (!this.modal) return;
         
+        // Mark as hidden for accessibility (prevents interaction)
+        this.modal.setAttribute('aria-hidden', 'true');
+        this.modal.style.pointerEvents = 'none'; // Prevent interaction during close
+        
         // Add fade-out animation (if motion is allowed)
         if (!this.prefersReducedMotion) {
             this.modal.classList.add('fade-out');
             
-            // Remove fade-out class after animation completes
+            // Hide modal after animation completes
             setTimeout(() => {
                 this.modal.classList.remove('fade-out');
+                this.modal.classList.add('hidden');
+                this.modal.style.display = 'none'; // Restore inline style to prevent flash
+                this.modal.style.pointerEvents = ''; // Reset pointer events
             }, 300);
+        } else {
+            // Hide immediately if reduced motion
+            this.modal.classList.add('hidden');
+            this.modal.style.display = 'none'; // Restore inline style to prevent flash
+            this.modal.style.pointerEvents = ''; // Reset pointer events
         }
-        
-        // Hide modal
-        this.modal.classList.add('hidden');
-        this.modal.setAttribute('aria-hidden', 'true');
         
         // Remove animation classes
         this.modal.classList.remove('fade-in');
