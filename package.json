@@ -1,0 +1,11 @@
+{
+  "name": "lumharalife",
+  "version": "1.0.0",
+  "description": "Lumhara Life website",
+  "scripts": {
+    "convert-images": "node convert-to-webp.js"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}
