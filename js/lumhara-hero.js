@@ -161,7 +161,7 @@ class LumharaHero extends HTMLElement {
                     position: relative;
                     width: 100%;
                     min-height: 100vh;
-                    background-image: url('assets/images/home_hero_v2.png');
+                    background-image: url('assets/images/home_hero_v2.webp');
                     background-size: cover;
                     background-position: center 55%;
                     background-repeat: no-repeat;
@@ -607,8 +607,8 @@ class LumharaHero extends HTMLElement {
                     <div class="hero-content-top">
                         <h1 class="sr-only">Lumhara Life Logo</h1>
                         <div class="logo-container">
-                            <img src="assets/images/lumhara_logo.png" alt="Lumhara Logo" class="hero-logo">
-                            <img src="assets/images/CroppedGrayLogo.png" alt="Lumhara Life Logo" class="logo text-logo">
+                            <img src="assets/images/lumhara_logo.webp" alt="Lumhara Logo" class="hero-logo">
+                            <img src="assets/images/CroppedGrayLogo.webp" alt="Lumhara Life Logo" class="logo text-logo">
                         </div>
                         <div class="decoded-message" aria-live="polite">
                             <span class="message-text">lum = lumen/light</span>

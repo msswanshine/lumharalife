@@ -126,8 +126,8 @@ class LumharaHeader extends HTMLElement {
             </style>
             <div class="header">
                 <a href="index.html" class="logo-link" aria-label="Lumhara Home">
-                    <img src="assets/images/lumhara_logo_nav.png" alt="Flame Logo" class="logo">
-                    <img src="assets/images/CroppedBlackLogo.png" alt="Lumhara Life" class="logo text-logo">
+                    <img src="assets/images/lumhara_logo_nav.webp" alt="Flame Logo" class="logo">
+                    <img src="assets/images/CroppedBlackLogo.webp" alt="Lumhara Life" class="logo text-logo">
                 </a>
                 <div class="menu-button-container">
                     <lumhara-nav-menu></lumhara-nav-menu>

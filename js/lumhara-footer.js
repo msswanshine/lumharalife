@@ -38,7 +38,7 @@ class LumharaFooter extends HTMLElement {
                 .pre-footer {
                     position: relative;
                     padding: var(--spacing-xl, 4rem) var(--spacing-md, 2rem);
-                    background-image: url('assets/images/newsletter-bg.png');
+                    background-image: url('assets/images/newsletter-bg.webp');
                     background-size: cover;
                     background-position: center;
                     background-repeat: no-repeat;
