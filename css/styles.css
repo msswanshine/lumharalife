@@ -921,7 +921,7 @@ section p {
 .offerings-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+
     margin-top: var(--spacing-lg);
 }
 
@@ -930,7 +930,6 @@ section p {
     background-color: rgba(255, 255, 255, 0.85);
     border: 1px solid rgba(68, 90, 68, 0.2);
     border-radius: 8px;
-    padding: var(--spacing-md);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     transition: box-shadow 0.3s ease, transform 0.2s ease;
     position: relative;
@@ -961,9 +960,23 @@ section p {
     opacity: 1;
 }
 
+.offering-card-image {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+.offering-card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    max-height: 300px;
+}
+
 .offering-card-content {
     display: flex;
     flex-direction: column;
+    padding: var(--spacing-md);
     height: 100%;
 }
 
@@ -1011,17 +1024,88 @@ section p {
     font-size: 0.95rem;
 }
 
+.offering-price {
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.offering-includes {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    margin: var(--spacing-xs) 0 var(--spacing-sm) var(--spacing-md);
+    line-height: 1.6;
+    list-style-type: disc;
+}
+
+.offering-includes li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.offering-note {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    font-style: italic;
+    margin-top: var(--spacing-sm);
+    line-height: 1.6;
+}
+
 .offering-card .cta-button {
     margin-top: auto;
     width: 100%;
     text-align: center;
 }
 
+/* Split container for Relationship Mechanics Session with stacked offerings */
+.offering-split-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: var(--spacing-lg);
+}
+
+.offering-stacked {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+.offering-stacked .offering-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.offering-stacked .offering-card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
 /* Desktop: 2-3 columns for card grid */
 @media (min-width: 1025px) {
-    .offerings-grid {
-        grid-template-columns: repeat(2, 1fr);
+    
+    .offering-split-container {
+        grid-template-columns: 1fr 1fr;
         gap: var(--spacing-xl);
+        align-items: stretch;
+    }
+    
+    .offering-card-large {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .offering-card-large .offering-card-content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    
+    .offering-stacked {
+        height: 100%;
+        gap: var(--spacing-lg);
     }
     
     .featured-offer-content {
@@ -1037,9 +1121,28 @@ section p {
 
 /* Tablet: 2 columns for card grid */
 @media (min-width: 769px) and (max-width: 1024px) {
-    .offerings-grid {
-        grid-template-columns: repeat(2, 1fr);
+    
+    .offering-split-container {
+        grid-template-columns: 1fr 1fr;
         gap: var(--spacing-lg);
+        align-items: stretch;
+    }
+    
+    .offering-card-large {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .offering-card-large .offering-card-content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    
+    .offering-stacked {
+        height: 100%;
+        gap: var(--spacing-md);
     }
 }
 
@@ -1066,13 +1169,22 @@ section p {
 }
 
 /* Mobile: 1 column (stacked) */
-@media (max-width: 768px) {    
+@media (max-width: 768px) {   
+    .offering-split-container {
+        display: block;
+    }
+
+    .offering-stacked {
+        display: block;
+    }
+
     .featured-offer h3 {
         font-size: 1.75rem;
     }
     
     .offering-card {
         padding: var(--spacing-sm);
+        margin-bottom: var(--spacing-md);
     }
     
     .offering-card h3 {
