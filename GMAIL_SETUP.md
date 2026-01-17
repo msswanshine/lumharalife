@@ -132,7 +132,7 @@ For now, Gmail's "Send mail as" is perfect and free!
 3. **Create new signature:**
    ```
    Amy Swan
-   Human Systems Guide & Coach
+   Clarity Catalyst
    Lumhara
    
    hello@lumharalife.com

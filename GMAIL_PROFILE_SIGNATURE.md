@@ -34,7 +34,7 @@
 
 ```
 Amy Swan
-Human Systems Guide & Coach
+Clarity Catalyst
 Lumhara
 
 hello@lumharalife.com
@@ -49,14 +49,14 @@ You can add your headshot image to the signature:
 2. **Click the image icon** (or Insert → Image)
 3. **Upload your headshot** (or use a URL if hosted online)
 4. **Resize as needed** (recommended: 100-150px height)
-5. **Add alt text:** "Amy Swan, Human Systems Guide & Coach"
+5. **Add alt text:** "Amy Swan, Clarity Catalyst"
 
 **Example signature with image:**
 ```
 [Amy's Headshot Image - 120px height]
 
 Amy Swan
-Human Systems Guide & Coach
+Clarity Catalyst
 Lumhara
 
 hello@lumharalife.com
@@ -106,7 +106,7 @@ Gmail doesn't automatically switch signatures based on "Send mail as" address, b
 ### Basic Text Signature:
 ```
 Amy Swan
-Human Systems Guide & Coach
+Clarity Catalyst
 Lumhara
 
 hello@lumharalife.com
@@ -118,7 +118,7 @@ lumharalife.com
 [Your Headshot - 120px]
 
 Amy Swan
-Human Systems Guide & Coach
+Clarity Catalyst
 Lumhara
 
 hello@lumharalife.com
@@ -130,7 +130,7 @@ You can use basic HTML in Gmail signatures:
 ```html
 <div style="font-family: Georgia, serif;">
 <strong>Amy Swan</strong><br>
-Human Systems Guide & Coach<br>
+Clarity Catalyst<br>
 <em>Lumhara</em><br><br>
 <a href="mailto:hello@lumharalife.com">hello@lumharalife.com</a><br>
 <a href="https://lumharalife.com">lumharalife.com</a>
