@@ -376,13 +376,13 @@ section p {
 }
 
 /* Our Approach section styles */
-#my-approach {
+#about-amy {
     position: relative;
     background-color: var(--color-background);
 }
 
 /* Subtle background texture/pattern for approach section with watercolor effect */
-#my-approach::before {
+#about-amy::before {
     content: '';
     position: absolute;
     top: 0;
@@ -398,11 +398,9 @@ section p {
     z-index: 0;
 }
 
-#my-approach > h2 {
-    position: relative;
-    z-index: 1;
+.about-amy-cta-container {
     text-align: center;
-    margin-bottom: var(--spacing-xl);
+    margin-top: var(--spacing-md);
 }
 
 .approach-main-content {
@@ -421,7 +419,7 @@ section p {
 .philosophy-quote {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
     text-align: center;
     height: 100%;
@@ -429,7 +427,7 @@ section p {
     margin: 0 auto;
     background-image: url('../assets/images/yinyang.webp');
     background-size: contain;
-    background-position: center;
+    background-position: top center;
     background-repeat: no-repeat;
     opacity: 1;
 }
@@ -548,6 +546,7 @@ section p {
     font-size: 1.125rem;
     line-height: 1.8;
     color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
 }
 
 /* Approach summary section */
@@ -650,7 +649,7 @@ section p {
     
     .philosophy-quote {
         text-align: left;
-        margin: 0;
+        margin: 2rem 0 0 0;
     }
     
     .approach-content {
