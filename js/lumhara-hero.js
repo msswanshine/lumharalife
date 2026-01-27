@@ -617,7 +617,7 @@ class LumharaHero extends HTMLElement {
                         </div>
                     </div>
                         <div class="hero-content-bottom">
-                        <p class="tagline">You're not broken. You're just out of tune. Let's calibrate.</p>
+                        <p class="tagline">You already are what you’re looking for. Let’s make it clear.</p>
                         <a href="#offerings" class="cta-button" aria-label="Navigate to offerings section">Begin Your Journey</a>
                     </div>
                 </div>
@@ -632,7 +632,7 @@ class LumharaHero extends HTMLElement {
                     <span class="message-text">hara = Japanese for 'core'</span>
                     <span class="message-text">Illuminate your unique personal core</span>
                 </div>
-                <p class="tagline">You're not broken. You're just out of tune. Let's calibrate.</p>
+                <p class="tagline">You already are what you’re looking for. Let’s make it clear.</p>
                 <a href="#offerings" class="cta-button" aria-label="Navigate to offerings section">Begin Your Journey</a>
             </div>
         `;
