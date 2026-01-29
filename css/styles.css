@@ -972,6 +972,22 @@ section p {
     max-height: 300px;
 }
 
+/* Flyer-style offering card */
+.offering-flyer-card .offering-card-content {
+    padding: 0;
+}
+
+.offering-flyer-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px 8px 0 0;
+}
+
+.offering-flyer-actions {
+    padding: var(--spacing-md);
+}
+
 .offering-card-content {
     display: flex;
     flex-direction: column;

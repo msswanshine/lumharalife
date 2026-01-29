@@ -237,6 +237,17 @@ class LumharaFooter extends HTMLElement {
                     <div class="footer-copyright">
                         <p>&copy; <span id="current-year">2025</span> Lumhara. Ashland, Or. All rights reserved.</p>
                     </div>
+                    <div class="footer-social">
+                        <a href="https://substack.com/@lumhara" target="_blank" rel="noopener noreferrer" aria-label="Follow on Substack">
+                            <i class="fab fa-substack" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://instagram.com/lumharalife" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://youtube.com/@lumharalife" target="_blank" rel="noopener noreferrer" aria-label="Follow on YouTube">
+                            <i class="fab fa-youtube" aria-hidden="true"></i>
+                        </a>
+                    </div>
                     <div class="footer-links">
                         <a href="privacy.html">Privacy</a>
                         <a href="terms.html">Terms & Conditions</a>
@@ -251,15 +262,15 @@ class LumharaFooter extends HTMLElement {
 }
 
 {/* <div class="footer-social">
-<a href="https://substack.com/@lumhara" target="_blank" rel="noopener noreferrer" aria-label="Follow on Substack">
-    <i class="fab fa-substack" aria-hidden="true"></i>
-</a>
-<a href="https://instagram.com/lumhara" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram">
-    <i class="fab fa-instagram" aria-hidden="true"></i>
-</a>
-<a href="https://youtube.com/@lumhara" target="_blank" rel="noopener noreferrer" aria-label="Follow on YouTube">
-    <i class="fab fa-youtube" aria-hidden="true"></i>
-</a>
+    <a href="https://substack.com/@lumhara" target="_blank" rel="noopener noreferrer" aria-label="Follow on Substack">
+        <i class="fab fa-substack" aria-hidden="true"></i>
+    </a>
+    <a href="https://instagram.com/lumhara" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram">
+        <i class="fab fa-instagram" aria-hidden="true"></i>
+    </a>
+    <a href="https://youtube.com/@lumhara" target="_blank" rel="noopener noreferrer" aria-label="Follow on YouTube">
+        <i class="fab fa-youtube" aria-hidden="true"></i>
+    </a>
 </div> */}
 
 // Register the custom element

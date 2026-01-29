@@ -199,16 +199,26 @@
             <div class="offerings-grid">
                 <!-- Workshop: Types, Strategies & Authorities -->
                 <div class="offering-split-container">
-                    <article class="offering-card" aria-label="Types, Strategies & Authorities workshop">
+                    <article class="offering-card offering-flyer-card" aria-label="Types, Strategies & Authorities workshop">
                         <div class="offering-card-content">
-                            <h3>Types, Strategies & Authorities</h3>
-                            <p class="offering-description">Learn more about what your type and strategy is and how to apply that to your life. In addition, learn basics about "Authorities" as a way of determining how to navigate choices and decisions that come up on the daily.</p>
-                            <div class="offering-details">
-                                <p class="offering-duration"><strong>Duration:</strong> 1.5 hours (1 hour presentation, 30 mins QA and practical application)</p>
-                                <p class="offering-format"><strong>Format:</strong> Available in live and online versions</p>
-                                <p class="offering-status">Stay Tuned</p>
+                            <h3 class="sr-only">Types, Strategies & Authorities</h3>
+                            <img
+                                src="assets/images/types-strategies-authorities.webp"
+                                alt="Move Like You're Meant To: A practical guide to Type, Strategy & Authority workshop flyer"
+                                class="offering-flyer-image"
+                                loading="lazy"
+                            />
+                            <div class="offering-flyer-actions">
+                                <button
+                                    type="button"
+                                    class="cta-button"
+                                    id="types-strategies-authorities-btn"
+                                    aria-haspopup="dialog"
+                                    aria-controls="workshop-modal"
+                                >
+                                    Save Your Spot
+                                </button>
                             </div>
-                            <a href="contact.html" class="cta-button">Coming Soon</a>
                         </div>
                     </article>
 
@@ -234,8 +244,8 @@
                     <article class="offering-card offering-card-large" aria-label="Relationship Mechanics Session">
                         <div class="offering-card-image">
                             <picture>
-                                <source srcset="assets/images/composite.webp" type="image/webp">
-                                <img src="assets/images/composite.png" alt="Composite chart analysis visualization" />
+                                <source srcset="assets/images/composite_offer.webp" type="image/webp">
+                                <img src="assets/images/composite_offer.webp" alt="Composite chart analysis visualization" />
                             </picture>
                         </div>
                         <div class="offering-card-content">
@@ -399,12 +409,34 @@
         </div>
     </div>
 
+    <!-- Workshop Signup Modal -->
+    <div id="workshop-modal" class="modal hidden" style="display: none;" aria-modal="true" aria-labelledby="workshop-modal-title" aria-hidden="true" role="dialog">
+        <div class="modal-backdrop" aria-label="Close modal"></div>
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close workshop signup form" type="button">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-content">
+                <h2 id="workshop-modal-title" class="sr-only">Workshop Signup - Types, Strategies & Authorities</h2>
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSdgPtcDMzPGjwR5hmhr06GGDqJbO9zqV1S5TpxJQoclv8ombw/viewform?usp=header"
+                    title="Types, Strategies & Authorities Workshop Signup"
+                    frameborder="0"
+                    allowfullscreen
+                    class="modal-iframe"
+                >
+                </iframe>
+            </div>
+        </div>
+    </div>
+
     <script type="module" src="js/lumhara-header.js"></script>
     <script type="module" src="js/lumhara-nav-menu.js"></script>
     <script type="module" src="js/lumhara-hero.js"></script>
     <script type="module" src="js/lumhara-footer.js"></script>
     <script type="module" src="js/lumhara-newsletter.js"></script>
     <script type="module" src="js/coming-soon-modal.js"></script>
+    <script type="module" src="js/workshop-modal.js"></script>
     <script type="module" src="js/lumhara-gdpr-banner.js"></script>
 </body>
 </html>
