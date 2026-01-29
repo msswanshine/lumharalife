@@ -238,8 +238,8 @@ class LumharaFooter extends HTMLElement {
                         <p>&copy; <span id="current-year">2025</span> Lumhara. Ashland, Or. All rights reserved.</p>
                     </div>
                     <div class="footer-social">
-                        <a href="https://substack.com/@lumhara" target="_blank" rel="noopener noreferrer" aria-label="Follow on Substack">
-                            <i class="fab fa-substack" aria-hidden="true"></i>
+                        <a href="https://facebook.com/lumharalife" target="_blank" rel="noopener noreferrer" aria-label="Follow on Facebook">
+                            <i class="fab fa-facebook" aria-hidden="true"></i>
                         </a>
                         <a href="https://instagram.com/lumharalife" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram">
                             <i class="fab fa-instagram" aria-hidden="true"></i>
