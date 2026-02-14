@@ -1012,6 +1012,14 @@ section p {
     margin-bottom: var(--spacing-sm);
 }
 
+.offering-notice {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+}
+
 .offering-description {
     font-family: 'Lato', sans-serif;
     font-size: 1rem;
