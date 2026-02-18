@@ -484,7 +484,7 @@ section p {
 /* Approach intro with headshot - centered layout */
 .approach-intro {
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 40% 60%;
     gap: var(--spacing-md);
     align-items: center;
 }
@@ -494,7 +494,6 @@ section p {
     justify-content: center;
     align-items: center;
     margin-bottom: 0;
-    order: 2;
 }
 
 .approach-headshot img {
@@ -502,14 +501,12 @@ section p {
     height: 300px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: 0 -15px;
     border: 3px solid rgba(68, 90, 68, 0.2);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .approach-intro-text {
     width: 100%;
-    order: 1;
 }
 
 .approach-lead {
@@ -642,7 +639,7 @@ section p {
 /* Desktop: Enhanced layout */
 @media (min-width: 1025px) {
     .approach-main-content {
-        grid-template-columns: 40% 1fr;
+        grid-template-columns: 60% 1fr;
         gap: var(--spacing-xl);
         align-items: start;
     }
@@ -694,15 +691,6 @@ section p {
         text-align: center;
     }
     
-    .approach-headshot {
-        order: 1;
-        margin-bottom: var(--spacing-md);
-    }
-    
-    .approach-intro-text {
-        order: 2;
-    }
-    
     .approach-headshot img {
         width: 250px;
         height: 250px;
@@ -732,15 +720,6 @@ section p {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
         text-align: center;
-    }
-    
-    .approach-headshot {
-        order: 1;
-        margin-bottom: var(--spacing-md);
-    }
-    
-    .approach-intro-text {
-        order: 2;
     }
     
     .approach-headshot img {
