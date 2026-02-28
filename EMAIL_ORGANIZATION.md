@@ -39,7 +39,7 @@ This guide helps you organize and differentiate Lumhara business emails from you
 3. **Create a new signature:**
    ```
    Amy Swan
-   Clarity Catalyst
+   Experiential Director · Human Systems Strategist
    Lumhara
    
    hello@lumharalife.com
