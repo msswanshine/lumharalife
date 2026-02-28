@@ -161,7 +161,7 @@ class LumharaHero extends HTMLElement {
                     position: relative;
                     width: 100%;
                     min-height: 100vh;
-                    background-image: url('assets/images/home_hero_v2.webp');
+                    background-image: url('assets/images/home_hero_v3.webp');
                     background-size: cover;
                     background-position: center 55%;
                     background-repeat: no-repeat;
@@ -394,6 +394,7 @@ class LumharaHero extends HTMLElement {
                     color: var(--color-text, #2c2c2c);
                     margin-bottom: var(--spacing-sm, 3rem);
                     line-height: 1.7;
+                    padding-top: 1rem;
                     text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
                 }
                 
@@ -613,12 +614,14 @@ class LumharaHero extends HTMLElement {
                         <div class="decoded-message" aria-live="polite">
                             <span class="message-text">lum = lumen/light</span>
                             <span class="message-text">hara = Japanese for 'core'</span>
-                            <span class="message-text">Illuminate your unique personal core</span>
+                            <span class="message-text">Where every core finds its light</span>
                         </div>
                     </div>
                         <div class="hero-content-bottom">
-                        <p class="tagline">You already are what you’re looking for. Let’s make it clear.</p>
-                        <a href="#offerings" class="cta-button" aria-label="Navigate to offerings section">Begin Your Journey</a>
+                        <p class="tagline">For the ones who've never quite 
+                            been seen for who they really are. <br>I create rooms where that changes. 
+                            Permanently.</p>
+                        <a href="#offerings" class="cta-button" aria-label="Navigate to offerings section">Step Into the Room</a>
                     </div>
                 </div>
                 <div class="scroll-indicator" aria-label="Scroll to see more content" role="button" tabindex="0">
@@ -630,10 +633,12 @@ class LumharaHero extends HTMLElement {
                 <div class="decoded-message" aria-live="polite">
                     <span class="message-text">lum = lumen/light</span>
                     <span class="message-text">hara = Japanese for 'core'</span>
-                    <span class="message-text">Illuminate your unique personal core</span>
+                    <span class="message-text">Where every core finds its light</span>
                 </div>
-                <p class="tagline">You already are what you’re looking for. Let’s make it clear.</p>
-                <a href="#offerings" class="cta-button" aria-label="Navigate to offerings section">Begin Your Journey</a>
+                <p class="tagline">For the ones who've never quite 
+                    been seen for who they really are. I create rooms where that changes. 
+                    Permanently.</p>
+                <a href="#offerings" class="cta-button" aria-label="Navigate to offerings section">Explore Offerings</a>
             </div>
         `;
     }
