@@ -1289,7 +1289,7 @@ section p {
     font-size: 1.125rem;
     line-height: 1.8;
     color: var(--color-text);
-    margin-bottom: var(--spacing-lg);
+    margin: var(--spacing-sm) 0;
 }
 
 .coming-soon-card .cta-button {
